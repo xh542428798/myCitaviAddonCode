@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Software\CitaviTest\Addons\</OutputPath>
+    <OutputPath>..\..\..\Software\CitaviTest\Addons\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -32,35 +32,35 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Citavi">
-      <HintPath>..\..\Software\CitaviTest\bin\Citavi.exe</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\Citavi.exe</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.UltraWinStatusBar.v11.2">
-      <HintPath>..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinStatusBar.v11.2.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinStatusBar.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.UltraWinTabControl.v11.2">
-      <HintPath>..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinTabControl.v11.2.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinTabControl.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.UltraWinToolbars.v11.2">
-      <HintPath>..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinToolbars.v11.2.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinToolbars.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic">
-      <HintPath>..\..\Software\CitaviTest\bin\SwissAcademic.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\SwissAcademic.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.AI">
-      <HintPath>..\..\Software\CitaviTest\bin\SwissAcademic.AI.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\SwissAcademic.AI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.AI.Core">
-      <HintPath>..\..\Software\CitaviTest\bin\SwissAcademic.AI.Core.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\SwissAcademic.AI.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.AI.Desktop">
-      <HintPath>..\..\Software\CitaviTest\bin\SwissAcademic.AI.Desktop.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\SwissAcademic.AI.Desktop.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Azure.Shared">
@@ -68,55 +68,55 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Citavi">
-      <HintPath>..\..\Software\CitaviTest\bin\SwissAcademic.Citavi.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\SwissAcademic.Citavi.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Citavi.Controls.Wpf">
-      <HintPath>..\..\Software\CitaviTest\bin\SwissAcademic.Citavi.Controls.Wpf.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\SwissAcademic.Citavi.Controls.Wpf.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Citavi.DbServer.Management">
-      <HintPath>..\..\Software\CitaviTest\bin\SwissAcademic.Citavi.DbServer.Management.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\SwissAcademic.Citavi.DbServer.Management.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Citavi.DbServer.Management.Controls">
-      <HintPath>..\..\Software\CitaviTest\bin\SwissAcademic.Citavi.DbServer.Management.Controls.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\SwissAcademic.Citavi.DbServer.Management.Controls.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Constants">
-      <HintPath>..\..\Software\CitaviTest\bin\SwissAcademic.Constants.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\SwissAcademic.Constants.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Controls">
-      <HintPath>..\..\Software\CitaviTest\bin\SwissAcademic.Controls.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\SwissAcademic.Controls.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Desktop">
-      <HintPath>..\..\Software\CitaviTest\bin\SwissAcademic.Desktop.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\SwissAcademic.Desktop.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Epub">
-      <HintPath>..\..\Software\CitaviTest\bin\SwissAcademic.Epub.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\SwissAcademic.Epub.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.KeyVaultUtils">
-      <HintPath>..\..\Software\CitaviTest\bin\SwissAcademic.KeyVaultUtils.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\SwissAcademic.KeyVaultUtils.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Logging">
-      <HintPath>..\..\Software\CitaviTest\bin\SwissAcademic.Logging.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\SwissAcademic.Logging.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Pdf">
-      <HintPath>..\..\Software\CitaviTest\bin\SwissAcademic.Pdf.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\SwissAcademic.Pdf.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Resources">
-      <HintPath>..\..\Software\CitaviTest\bin\SwissAcademic.Resources.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\SwissAcademic.Resources.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.SecurityUtility">
-      <HintPath>..\..\Software\CitaviTest\bin\SwissAcademic.SecurityUtility.dll</HintPath>
+      <HintPath>..\..\..\Software\CitaviTest\bin\SwissAcademic.SecurityUtility.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />

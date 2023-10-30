@@ -17,15 +17,13 @@ namespace SearchInActiveGroupAddon
     {
         public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            mainForm.GetReferenceEditorNavigationCommandbarManager().GetCommandbar(MainFormReferenceEditorNavigationCommandbarId.Toolbar).AddCommandbarButton("SearchInActiveCategory", "Search active category in advanced search", CommandbarItemStyle.ImageOnly, SwissAcademic.Citavi.Shell.Properties.Resources.SearchKnowledge);
-            mainForm.GetReferenceEditorNavigationCommandbarManager().GetCommandbar(MainFormReferenceEditorNavigationCommandbarId.Toolbar).AddCommandbarButton("SearchInActiveGroup", "Search active group in advanced search", CommandbarItemStyle.ImageOnly, SwissAcademic.Citavi.Shell.Properties.Resources.Search);
+            //这里是设置在Reference的搜索框旁边
+            //mainForm.GetReferenceEditorNavigationCommandbarManager().GetCommandbar(MainFormReferenceEditorNavigationCommandbarId.Toolbar).AddCommandbarButton("SearchInActiveCategory", "Search active category in advanced search", CommandbarItemStyle.ImageOnly, SwissAcademic.Citavi.Shell.Properties.Resources.SearchKnowledge);
+            //mainForm.GetReferenceEditorNavigationCommandbarManager().GetCommandbar(MainFormReferenceEditorNavigationCommandbarId.Toolbar).AddCommandbarButton("SearchInActiveGroup", "Search active group in advanced search", CommandbarItemStyle.ImageOnly, SwissAcademic.Citavi.Shell.Properties.Resources.Search);
 
-            // button.HasSeparator = true;
-
-            // CommandbarMenu commandbarMenu = mainForm.GetReferenceEditorCategoriesAndKeywordsCommandbarManager().GetCommandbar(MainFormReferenceEditorCategoriesAndKeywordsCommandbarId.Toolbar).GetCommandbarMenu("Mystudy");
-            //.AddCommandbarMenu("SearchInActiveGroup", "Show this group in advanced search"); 
-
-            //("SearchInActiveGroup", "Show this group in advanced search");
+            // 这里是放在开关侧边栏的那里
+            mainForm.GetReferenceEditorFilterCommandbarManager().GetCommandbar(MainFormReferenceEditorFilterCommandbarId.Toolbar).AddCommandbarButton("SearchInActiveCategory", "Search active category in advanced search", CommandbarItemStyle.ImageOnly, SwissAcademic.Citavi.Shell.Properties.Resources.SearchKnowledge);
+            mainForm.GetReferenceEditorFilterCommandbarManager().GetCommandbar(MainFormReferenceEditorFilterCommandbarId.Toolbar).AddCommandbarButton("SearchInActiveGroup", "Search active group in advanced search", CommandbarItemStyle.ImageOnly, SwissAcademic.Citavi.Shell.Properties.Resources.Search);
 
             base.OnHostingFormLoaded(mainForm);
         }
