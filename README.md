@@ -36,3 +36,26 @@ Show active reference of table view in main form
 Fix the official bug
 
 ![ScrollSpeedInPdfPreview](vx_images/ScrollSpeedInPdfPreview.gif)
+
+## DuplicateComparing
+
+- [ ] **In processing**, compare duplicates like endnote
+
+![img](vx_images/v2-54b25fe6df839ec8904d0261459347f6_r.jpg)
+
+## TranslateGPTInCitavi
+
+Open a chatGPT website, communicating and exchanging data between Citavi and web pages, so that we can batch translate Title and Abstract in Citavi, and ask chatGPT quicker. 
+
+(Note: This method simulates browser access to the ChatGPT mirror website, which may be shut down at any time, requiring frequent adjustments.)
+
+**Requirements**: 
+
+Selenium.RC.3.1.0
+Selenium.Support.4.14.1
+Selenium.WebDriver.MSEdgeDriver.118.0.2088.41 -> Edge 118.0.2088.xx (x64)
+Selenium.WebDriver.4.14.1
+System.Drawing.Common.7.0.0; Newtonsoft.Json.13.0.1 (Install automaticly by Selenium)
+
+
+

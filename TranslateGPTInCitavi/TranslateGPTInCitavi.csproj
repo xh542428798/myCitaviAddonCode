@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{93B39703-9CD4-4DDC-AB8E-C5782B7CC4DB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TranslateGPTInCitavi</RootNamespace>
+    <AssemblyName>TranslateGPTInCitavi</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\Software\CitaviTest\Addons\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\..\..\Software\CitaviTest\Addons\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Citavi">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\Citavi.exe</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Infragistics4.Shared.v11.2">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\Infragistics4.Shared.v11.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinStatusBar.v11.2">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinStatusBar.v11.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinTabControl.v11.2">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinTabControl.v11.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinToolbars.v11.2">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinToolbars.v11.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PDFNet">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\PDFNet.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.AI">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.AI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.AI.Console">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.AI.Console.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.AI.Core">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.AI.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.AI.Desktop">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.AI.Desktop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Azure.Shared">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Azure.Shared.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Citavi">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Citavi.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Citavi.Controls.Wpf">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Citavi.Controls.Wpf.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Citavi.DbServer.Management">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Citavi.DbServer.Management.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Citavi.DbServer.Management.Controls">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Citavi.DbServer.Management.Controls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Constants">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Constants.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Controls">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Controls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Desktop">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Desktop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Epub">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Epub.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.KeyVaultUtils">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.KeyVaultUtils.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Logging">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Logging.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Pdf">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Pdf.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Resources">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Resources.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.SecurityUtility">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.SecurityUtility.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Common.7.0.0\lib\netstandard2.0\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThoughtWorks.Selenium.Core, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Selenium.RC.3.1.0\lib\net40\ThoughtWorks.Selenium.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Selenium.WebDriver.4.14.1\lib\netstandard2.0\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Selenium.Support.4.14.1\lib\netstandard2.0\WebDriver.Support.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TranslateGPTInCitavi.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Selenium.WebDriver.MSEdgeDriver.118.0.2088.41\build\Selenium.WebDriver.MSEdgeDriver.targets" Condition="Exists('packages\Selenium.WebDriver.MSEdgeDriver.118.0.2088.41\build\Selenium.WebDriver.MSEdgeDriver.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Selenium.WebDriver.MSEdgeDriver.118.0.2088.41\build\Selenium.WebDriver.MSEdgeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Selenium.WebDriver.MSEdgeDriver.118.0.2088.41\build\Selenium.WebDriver.MSEdgeDriver.targets'))" />
+    <Error Condition="!Exists('packages\Selenium.WebDriver.4.14.1\build\Selenium.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Selenium.WebDriver.4.14.1\build\Selenium.WebDriver.targets'))" />
+  </Target>
+  <Import Project="packages\Selenium.WebDriver.4.14.1\build\Selenium.WebDriver.targets" Condition="Exists('packages\Selenium.WebDriver.4.14.1\build\Selenium.WebDriver.targets')" />
+</Project>
