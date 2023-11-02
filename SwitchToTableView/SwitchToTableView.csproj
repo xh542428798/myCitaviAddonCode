@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1B093387-E62C-438B-AFA0-C4A78DEB191B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SwitchToTableView</RootNamespace>
+    <AssemblyName>SwitchToTableView</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\Software\CitaviTest\Addons\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Citavi">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\Citavi.exe</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Infragistics4.Shared.v11.2">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\Infragistics4.Shared.v11.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinStatusBar.v11.2">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinStatusBar.v11.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinTabControl.v11.2">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinTabControl.v11.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinToolbars.v11.2">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinToolbars.v11.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.AI">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.AI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.AI.Console">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.AI.Console.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.AI.Core">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.AI.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.AI.Desktop">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.AI.Desktop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Azure.Shared">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Azure.Shared.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Citavi">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Citavi.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Citavi.Controls.Wpf">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Citavi.Controls.Wpf.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Citavi.DbServer.Management">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Citavi.DbServer.Management.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Citavi.DbServer.Management.Controls">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Citavi.DbServer.Management.Controls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Constants">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Constants.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Controls">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Controls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Desktop">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Desktop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Epub">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Epub.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.KeyVaultUtils">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.KeyVaultUtils.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Logging">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Logging.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Pdf">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Pdf.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Resources">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.Resources.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.SecurityUtility">
+      <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.SecurityUtility.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SwitchToTableView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

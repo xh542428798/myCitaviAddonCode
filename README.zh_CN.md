@@ -47,6 +47,36 @@ Fix the official bug
 - [ ] **进行中**, 像endnote一样对比重复文件
 ![img](vx_images/v2-54b25fe6df839ec8904d0261459347f6_r.jpg)
 
+
+
+## SwitchToMainWindow
+
+Switch back to MainWindow quickly from TableView.
+
+从TableView快速切换回MainWindow
+
+## SwitchToTableView
+
+Switch to TableView quickly from MainWindow.
+
+从MainWindow快速切换到TableView
+
+## ReferenceGridFormWorkSpaceEditor
+
+This add-on lets you save your selection of columns and groups as a work area.
+
+This is the modified addon from official. I add the menu to the tool bar, it would be more convenient.
+
+这个插件允许您将列和分组的选择保存为一个工作区。
+
+这是官方版本经过我修改的插件。我在工具栏上添加了菜单，这样更加方便。
+
+Note: 将插件文件拷贝到 Addon folder, 没有二级文件夹.
+
+![image-20231102232340401](vx_images/image-20231102232340401.png) 
+
+ 
+
 ## TranslateGPTInCitavi
 
 Open a chatGPT website, communicating and exchanging data between Citavi and web pages, so that we can batch translate Title and Abstract in Citavi, and ask chatGPT quicker. 

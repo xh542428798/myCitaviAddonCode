@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwitchToTableView", "SwitchToTableView.csproj", "{1B093387-E62C-438B-AFA0-C4A78DEB191B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B093387-E62C-438B-AFA0-C4A78DEB191B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B093387-E62C-438B-AFA0-C4A78DEB191B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B093387-E62C-438B-AFA0-C4A78DEB191B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B093387-E62C-438B-AFA0-C4A78DEB191B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CEB53FD5-25C7-416E-AC0B-7A6C940F7F8A}
+	EndGlobalSection
+EndGlobal
