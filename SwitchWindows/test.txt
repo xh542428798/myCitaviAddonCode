@@ -1,0 +1,70 @@
+using System;
+using System.Runtime.InteropServices;
+using System.Threading;
+using System.Windows.Forms;
+using SwissAcademic.Citavi;
+using SwissAcademic.Citavi.Shell;
+
+public class MyPlugin : CitaviAddOn<MainForm>
+{
+    private const int WM_HOTKEY = 0x0312;
+    private const int MOD_ALT = 0x0001;
+    private const int MOD_SHIFT = 0x0004;
+    private const int VK_W = 0x57;
+
+    [DllImport("user32.dll")]
+    private static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vk);
+
+    [DllImport("user32.dll")]
+    private static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+
+    private Thread hotkeyThread;
+    private bool isRunning;
+
+    public override void OnHostingFormLoaded(MainForm mainForm)
+    {
+        // Start the hotkey thread
+        hotkeyThread = new Thread(HotkeyThreadMethod);
+        hotkeyThread.Start();
+    }
+
+    public override void OnHostingFormClosed(MainForm mainForm)
+    {
+        // Stop the hotkey thread when the hosting form is closed
+        isRunning = false;
+        hotkeyThread.Join();
+
+        base.OnHostingFormClosed(mainForm);
+    }
+
+    private void HotkeyThreadMethod()
+    {
+        // Register the hotkey with the system
+        RegisterHotKey(IntPtr.Zero, 1, MOD_ALT | MOD_SHIFT, VK_W);
+
+        isRunning = true;
+        while (isRunning)
+        {
+            if (PeekMessage(out var msg, IntPtr.Zero, WM_HOTKEY, WM_HOTKEY, 0))
+            {
+                // The hotkey was pressed, execute your code here
+                MainForm form = Program.ActiveProjectShell.PrimaryMainForm;
+                form.Invoke(new Action(MyMacroMethod));
+            }
+        }
+
+        // Unregister the hotkey when the thread is stopped
+        UnregisterHotKey(IntPtr.Zero, 1);
+    }
+
+    private void MyMacroMethod()
+    {
+        // Your macro code here
+        // ...
+        MainForm form = Program.ActiveProjectShell.PrimaryMainForm;
+        form.SearchForm.Visible = !form.SearchForm.Visible;
+    }
+
+    [DllImport("user32.dll")]
+    private static extern bool PeekMessage(out Message msg, IntPtr hWnd, uint messageFilterMin, uint messageFilterMax, uint flags);
+}
