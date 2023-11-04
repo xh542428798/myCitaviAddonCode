@@ -23,6 +23,13 @@ Show selected reference of search form in main form
 
 ![ShowReferenceFromSearchForm](vx_images/ShowReferenceFromSearchForm.gif)
 
+## BatchModifyOfSearchForm
+
+1. Display the selected references from the search form in the main reference pane by setting filters in the main form.
+2. Perform batch category and group assignment or remove operations on the selected references in the search form using a single-button feature in the main form.
+
+![image-20231104092440562](vx_images/image-20231104092440562.png)
+
 ## ShowReferenceFromTableView
 
 Show active reference of table view in main form

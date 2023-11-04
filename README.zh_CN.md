@@ -26,6 +26,14 @@ Show selected reference of search form in main form。
 
 ![ShowReferenceFromSearchForm](vx_images/ShowReferenceFromSearchForm.gif)
 
+## BatchModifyOfSearchForm
+
+1. 在主界面中通过设置过滤器，在文献窗格显示搜索框中选中的文献。
+
+2. 在主界面中通过一键按钮，对搜索框中选中的文献进行批量Category和Group赋予和删除操作
+
+![image-20231104092440562](vx_images/image-20231104092440562.png)
+
 ## ShowReferenceFromTableView
 
 Show active reference of table view in main form
@@ -76,6 +84,10 @@ Note: 将插件文件拷贝到 Addon folder, 没有二级文件夹.
 ![image-20231102232340401](vx_images/image-20231102232340401.png) 
 
  
+
+
+
+
 
 ## TranslateGPTInCitavi
 
