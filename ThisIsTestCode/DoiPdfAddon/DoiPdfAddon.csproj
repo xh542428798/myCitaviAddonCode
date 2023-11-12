@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: E:\OneDrive - 中山大学\Appdata_my\各种软件Setting样式\Citavi重复\Addons\DoiPdfAddon.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A7E0E34-CF94-4352-A445-F50CE6F8C26A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>DoiPdfAddon</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>DoiPdfAddon</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Citavi">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\Citavi.exe</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.ClientEngine">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SuperSocket.ClientEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic.AI">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.AI.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic.AI.Console">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.AI.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic.AI.Core">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.AI.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic.AI.Desktop">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.AI.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic.Citavi">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Citavi.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic.Citavi.Controls.Wpf">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Citavi.Controls.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic.Constants">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Constants.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic.Controls">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic.Desktop">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic.Epub">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Epub.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic.KeyVaultUtils">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.KeyVaultUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic.Logging">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic.Pdf">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic.Resources">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Resources.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic.SecurityUtility">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.SecurityUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic.WordProcessing">
+      <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.WordProcessing.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="Winista.HtmlParser">
+      <HintPath>lib\Winista.HtmlParser.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Addon.cs" />
+    <Compile Include="DoiPdfDownloader.cs" />
+    <Compile Include="IconResources.cs" />
+    <Compile Include="Scihub.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Settings.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="IconResources.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
