@@ -1,40 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using SwissAcademic.Citavi;
 using SwissAcademic.Controls;
-using AutoWindowsSize;
-
+using DiffPlex;
+using DiffPlex.DiffBuilder;
+using DiffPlex.DiffBuilder.Model;
+using DiffPlex.WindowsForms.Controls;
+using System.Drawing;
+using System.Collections.Generic;
 
 namespace DuplicateComparing
 {
-    
     public partial class ComparingForm : FormBase
     {
         //public string leftRef;
         //public string rightRef;
-        AutoAdaptWindowsSize AutoSize;
         // 返回结果属性
         public string DialogResult { get; private set; }
-
-        private void Form1_SizeChanged(object sender, EventArgs e)
-        {
-            if (AutoSize != null) // 一定加这个判断，电脑缩放布局不是100%的时候，会报错
-            {
-                AutoSize.FormSizeChanged();
-            }
-        }
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            AutoSize = new AutoAdaptWindowsSize(this); 
         }
 
         public override void Localize()
@@ -50,15 +36,25 @@ namespace DuplicateComparing
         }
 
 
-        public ComparingForm(Form owner, string leftRef, string rightRef) : base(owner)
+        public ComparingForm(Form owner, string leftRef, string rightRef, bool doi =false) : base(owner)
         {
             InitializeComponent();
             Owner = owner;
-            // 假设panelLeft是窗体中的Panel控件
-            this.panelLeft.Text = leftRef;
-            this.panelRight.Text = rightRef;
-            //this.leftRef = leftRef;
-            //this.rightRef = rightRef;
+
+            // 比较单词数组
+            if(!doi)
+            {
+                CompareStrings(leftRef, rightRef);
+            }
+            else
+            {
+                // 假设panelLeft是窗体中的Panel控件
+                this.panelLeft.Text = leftRef;
+                this.panelRight.Text = rightRef;
+            }
+
+
+
             // 取消 TextBox 的文本选中状态
             panelLeft.SelectionStart = 0;
             panelLeft.SelectionLength = 0;
@@ -71,6 +67,123 @@ namespace DuplicateComparing
             int formHeight = this.Height;
             // 调整窗体位置和大小
             this.Location = new Point(this.Location.X, screenHeight / 3 - formHeight / 2);
+
+        }
+            private void CompareStrings(string leftRef, string rightRef)
+        {
+            SideBySideDiffBuilder diffBuilder = new SideBySideDiffBuilder(new Differ());
+            SideBySideDiffModel diffModel = diffBuilder.BuildDiffModel(leftRef, rightRef);
+
+            this.panelLeft.Clear();
+            this.panelRight.Clear();
+            List<int> delelteInfo = new List<int>();
+            foreach (var line in diffModel.OldText.Lines)
+            {
+                for (int i = 0; i < line.SubPieces.Count; i++)
+                {
+                    var change = line.SubPieces[i];
+                //}
+                //foreach (var change in line.SubPieces)
+                //{
+                    
+                    // if (string.IsNullOrEmpty(change?.Text)) continue;
+                    if (change.Type == ChangeType.Imaginary)
+                    {
+                        continue;
+                    }
+                    else if(change.Type == ChangeType.Deleted)
+                    {
+                        if (change.Text == " ")
+                        {
+                            this.panelLeft.SelectionBackColor = Color.Transparent;
+                            this.panelLeft.AppendText(" ");
+                            delelteInfo.Add(i);
+                        }
+                        else
+                        {
+                            this.panelLeft.SelectionBackColor = Color.Transparent;
+                            this.panelLeft.SelectionColor = Color.Red;
+                            this.panelLeft.AppendText(change.Text);
+                        }
+                            
+                        
+                    }
+                    else if (change.Type == ChangeType.Inserted)
+                    {
+                        this.panelLeft.SelectionBackColor = Color.Transparent;
+                        this.panelLeft.SelectionColor = Color.Green;
+                        this.panelLeft.AppendText(change.Text);
+                    }
+                    else if (change.Type == ChangeType.Modified)
+                    {
+                        this.panelLeft.SelectionBackColor = Color.Transparent;
+                        this.panelLeft.SelectionColor = Color.Yellow;
+                        this.panelLeft.AppendText(change.Text);
+                    }
+                    else
+                    {
+                        this.panelLeft.SelectionBackColor = Color.Transparent;
+                        this.panelLeft.SelectionColor = Color.Black;
+                        this.panelLeft.AppendText(change.Text);
+                    }
+                }
+
+                this.panelLeft.AppendText(" ");
+            }
+
+            foreach (var line in diffModel.NewText.Lines)
+            {
+                for (int i = 0; i < line.SubPieces.Count; i++)
+                {
+                    var change = line.SubPieces[i];
+                    if (delelteInfo.Contains(i))
+                    {
+                        this.panelRight.SelectionBackColor = Color.Red;
+                        this.panelRight.AppendText(" ");
+                    }
+                    //}
+                    // if (string.IsNullOrEmpty(change?.Text)) continue;
+                    if (change.Type == ChangeType.Imaginary)
+                    {
+                        continue;
+                    }
+                    else if (change.Type == ChangeType.Deleted)
+                    {
+                        if (change.Text == " ")
+                        {
+                            continue;
+                            //this.panelRight.SelectionBackColor = Color.Red;
+                            //this.panelRight.AppendText(" ");
+                        }
+                        else
+                        {
+                            this.panelRight.SelectionBackColor = Color.Transparent;
+                            this.panelRight.SelectionColor = Color.Red;
+                            this.panelRight.AppendText(change.Text);
+                        }
+                    }
+                    else if (change.Type == ChangeType.Inserted)
+                    {
+                        this.panelRight.SelectionBackColor = Color.Transparent;
+                        this.panelRight.SelectionColor = Color.Green;
+                        this.panelRight.AppendText(change.Text);
+                    }
+                    else if (change.Type == ChangeType.Modified)
+                    {
+                        this.panelRight.SelectionBackColor = Color.Transparent;
+                        this.panelRight.SelectionColor = Color.Yellow;
+                        this.panelRight.AppendText(change.Text);
+                    }
+                    else
+                    {
+                        this.panelRight.SelectionBackColor = Color.Transparent;
+                        this.panelRight.SelectionColor = Color.Black;
+                        this.panelRight.AppendText(change.Text);
+                    }
+                }
+
+                this.panelRight.AppendText(" ");
+            }
         }
 
         private void UsingleftButton_Click(object sender, EventArgs e)

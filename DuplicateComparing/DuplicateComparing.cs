@@ -234,15 +234,7 @@ namespace DuplicateComparingAddon
                                 }
 
                                 // 分类字段
-                                // Locations
-                                foreach (Location location in references[1].Locations)
-                                {
-                                    if (!references[0].Locations.Contains(location))
-                                    {
-                                        references[0].Locations.Add(location);
-                                    }
-                                }
-
+                                
                                 // Groups
                                 strLeft = GetCategoryStr(references[0], "Group");
                                 strRight = GetCategoryStr(references[1], "Group");
@@ -283,7 +275,7 @@ namespace DuplicateComparingAddon
                                 // Locations
                                 strLeft = GetCategoryStr(references[0], "Location");
                                 strRight = GetCategoryStr(references[1], "Location");
-                                result = MergeOrCombine(mainForm, strLeft, strRight, true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, true,true);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -302,7 +294,7 @@ namespace DuplicateComparingAddon
                                 // Keyword
                                 strLeft = GetCategoryStr(references[0], "Keyword");
                                 strRight = GetCategoryStr(references[1], "Keyword");
-                                result = MergeOrCombine(mainForm, strLeft, strRight, true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, true, true);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -321,7 +313,7 @@ namespace DuplicateComparingAddon
                                 //Author
                                 strLeft = GetCategoryStr(references[0], "Author");
                                 strRight = GetCategoryStr(references[1], "Author");
-                                result = MergeOrCombine(mainForm, strLeft, strRight, true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, true, true);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -340,7 +332,7 @@ namespace DuplicateComparingAddon
                                 //ReferenceCollaborator
                                 strLeft = GetCategoryStr(references[0], "Collaborator");
                                 strRight = GetCategoryStr(references[1], "Collaborator");
-                                result = MergeOrCombine(mainForm, strLeft, strRight, true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, true, true);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -359,7 +351,7 @@ namespace DuplicateComparingAddon
                                 //Editors
                                 strLeft = GetCategoryStr(references[0], "Editor");
                                 strRight = GetCategoryStr(references[1], "Editor");
-                                result = MergeOrCombine(mainForm, strLeft, strRight, true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, true, true);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -377,7 +369,7 @@ namespace DuplicateComparingAddon
                                 //Organization
                                 strLeft = GetCategoryStr(references[0], "Organization");
                                 strRight = GetCategoryStr(references[1], "Organization");
-                                result = MergeOrCombine(mainForm, strLeft, strRight, true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, true, true);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -396,7 +388,7 @@ namespace DuplicateComparingAddon
                                 //OthersInvolved
                                 strLeft = GetCategoryStr(references[0], "OthersInvolved");
                                 strRight = GetCategoryStr(references[1], "OthersInvolved");
-                                result = MergeOrCombine(mainForm, strLeft, strRight, true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, true, true);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -415,7 +407,7 @@ namespace DuplicateComparingAddon
                                 //Publishers
                                 strLeft = GetCategoryStr(references[0], "Publishers");
                                 strRight = GetCategoryStr(references[1], "Publishers");
-                                result = MergeOrCombine(mainForm, strLeft, strRight, true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, true, true);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -479,7 +471,7 @@ namespace DuplicateComparingAddon
             base.OnBeforePerformingCommand(mainForm, e);
         }
  
-        private static string MergeOrCombine(MainForm mainform, string strLeft, string strRight,bool returnLRValue=false)
+        private static string MergeOrCombine(MainForm mainform, string strLeft, string strRight,bool returnLRValue=false,bool doi = false)
         {
             strLeft = strLeft.Trim();
             strRight = strRight.Trim();
@@ -500,35 +492,71 @@ namespace DuplicateComparingAddon
                 }
                 else
                 {
-                    using (var dialog = new ComparingForm(mainform, strLeft, strRight))
+                    if (!doi)
                     {
-                        if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                        using (var dialog = new ComparingForm(mainform, strLeft, strRight))
                         {
-                            string result = dialog.DialogResult; // 获取对话框返回的结果
-                            if (result == "left")
+                            if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                             {
-                                return strLeft;
-                                //references[0].Title = references[0].Title;
-                            }
-                            else if (result == "right")
-                            {
-                                return strRight;
-                            }
-                            else if (result == "combine")
-                            {
-                                return strLeft + " // " + strRight;
+                                string result = dialog.DialogResult; // 获取对话框返回的结果
+                                if (result == "left")
+                                {
+                                    return strLeft;
+                                    //references[0].Title = references[0].Title;
+                                }
+                                else if (result == "right")
+                                {
+                                    return strRight;
+                                }
+                                else if (result == "combine")
+                                {
+                                    return strLeft + " // " + strRight;
+                                }
+                                else
+                                {
+                                    return "cancel";
+                                }
                             }
                             else
                             {
+                                MessageBox.Show("Code error,dialog window did not open!");
                                 return "cancel";
                             }
                         }
-                        else
+                    }
+                    else
+                    {
+                        using (var dialog = new ComparingForm(mainform, strLeft, strRight))
                         {
-                            MessageBox.Show("Code error,dialog window did not open!");
-                            return "cancel";
+                            if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                            {
+                                string result = dialog.DialogResult; // 获取对话框返回的结果
+                                if (result == "left")
+                                {
+                                    return strLeft;
+                                    //references[0].Title = references[0].Title;
+                                }
+                                else if (result == "right")
+                                {
+                                    return strRight;
+                                }
+                                else if (result == "combine")
+                                {
+                                    return strLeft + " // " + strRight;
+                                }
+                                else
+                                {
+                                    return "cancel";
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Code error,dialog window did not open!");
+                                return "cancel";
+                            }
                         }
                     }
+                    
                 }
             }
             else
@@ -549,18 +577,37 @@ namespace DuplicateComparingAddon
                 }
                 else
                 {
-                    using (var dialog = new ComparingForm(mainform, strLeft, strRight))
+                    if (doi)
                     {
-                        if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                        using (var dialog = new ComparingForm(mainform, strLeft, strRight,true))
                         {
-                            return dialog.DialogResult; // 获取对话框返回的结果
-                        }
-                        else
-                        {
-                            MessageBox.Show("Code error,dialog window did not open!");
-                            return "cancel";
+                            if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                            {
+                                return dialog.DialogResult; // 获取对话框返回的结果
+                            }
+                            else
+                            {
+                                MessageBox.Show("Code error,dialog window did not open!");
+                                return "cancel";
+                            }
                         }
                     }
+                    else
+                    {
+                        using (var dialog = new ComparingForm(mainform, strLeft, strRight))
+                        {
+                            if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                            {
+                                return dialog.DialogResult; // 获取对话框返回的结果
+                            }
+                            else
+                            {
+                                MessageBox.Show("Code error,dialog window did not open!");
+                                return "cancel";
+                            }
+                        }
+                    }
+                    
                 }
             }
 

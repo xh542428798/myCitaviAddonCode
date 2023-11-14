@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using DiffPlex.WindowsForms.Controls;
 
 namespace DuplicateComparing
 {
@@ -43,13 +44,13 @@ namespace DuplicateComparing
             this.UsingleftButton = new System.Windows.Forms.Button();
             this.UsingrightButton = new System.Windows.Forms.Button();
             this.CombineButton = new System.Windows.Forms.Button();
-            this.panelLeft = new System.Windows.Forms.TextBox();
-            this.panelRight = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Cancel = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panelLeft = new System.Windows.Forms.RichTextBox();
+            this.panelRight = new System.Windows.Forms.RichTextBox();
             this.flowLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // UsingleftButton
@@ -91,47 +92,6 @@ namespace DuplicateComparing
             this.CombineButton.UseVisualStyleBackColor = true;
             this.CombineButton.Click += new System.EventHandler(this.CombineButton_Click);
             // 
-            // panelLeft
-            // 
-            this.panelLeft.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panelLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelLeft.Location = new System.Drawing.Point(4, 3);
-            this.panelLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panelLeft.Multiline = true;
-            this.panelLeft.Name = "panelLeft";
-            this.panelLeft.ReadOnly = true;
-            this.panelLeft.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.panelLeft.Size = new System.Drawing.Size(275, 323);
-            this.panelLeft.TabIndex = 6;
-            // 
-            // panelRight
-            // 
-            this.panelRight.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRight.Location = new System.Drawing.Point(287, 3);
-            this.panelRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panelRight.Multiline = true;
-            this.panelRight.Name = "panelRight";
-            this.panelRight.ReadOnly = true;
-            this.panelRight.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.panelRight.Size = new System.Drawing.Size(275, 323);
-            this.panelRight.TabIndex = 7;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.panelLeft, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panelRight, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(566, 329);
-            this.tableLayoutPanel1.TabIndex = 8;
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoSize = true;
@@ -141,9 +101,9 @@ namespace DuplicateComparing
             this.flowLayoutPanel1.Controls.Add(this.UsingrightButton);
             this.flowLayoutPanel1.Controls.Add(this.Cancel);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 335);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 322);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(566, 58);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(572, 58);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
             // Cancel
@@ -159,11 +119,45 @@ namespace DuplicateComparing
             this.Cancel.UseVisualStyleBackColor = true;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoScroll = true;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.panelLeft, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panelRight, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(572, 322);
+            this.tableLayoutPanel1.TabIndex = 10;
+            // 
+            // panelLeft
+            // 
+            this.panelLeft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLeft.Location = new System.Drawing.Point(3, 3);
+            this.panelLeft.Name = "panelLeft";
+            this.panelLeft.Size = new System.Drawing.Size(280, 316);
+            this.panelLeft.TabIndex = 0;
+            this.panelLeft.Text = "";
+            // 
+            // panelRight
+            // 
+            this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelRight.Location = new System.Drawing.Point(289, 3);
+            this.panelRight.Name = "panelRight";
+            this.panelRight.Size = new System.Drawing.Size(280, 316);
+            this.panelRight.TabIndex = 1;
+            this.panelRight.Text = "";
+            // 
             // ComparingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 393);
+            this.ClientSize = new System.Drawing.Size(572, 380);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F);
@@ -172,10 +166,9 @@ namespace DuplicateComparing
             this.Name = "ComparingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Duplicates Comparing";
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,11 +178,10 @@ namespace DuplicateComparing
         private System.Windows.Forms.Button UsingleftButton;
         private System.Windows.Forms.Button UsingrightButton;
         private System.Windows.Forms.Button CombineButton;
-        private System.Windows.Forms.TextBox panelLeft;
-
-        private System.Windows.Forms.TextBox panelRight;
-        private TableLayoutPanel tableLayoutPanel1;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button Cancel;
+        private TableLayoutPanel tableLayoutPanel1;
+        private RichTextBox panelLeft;
+        private RichTextBox panelRight;
     }
 }
