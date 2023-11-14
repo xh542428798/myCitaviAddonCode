@@ -17,6 +17,8 @@ namespace DuplicateComparing
     
     public partial class ComparingForm : FormBase
     {
+        //public string leftRef;
+        //public string rightRef;
         AutoAdaptWindowsSize AutoSize;
         // 返回结果属性
         public string DialogResult { get; private set; }
@@ -55,8 +57,20 @@ namespace DuplicateComparing
             // 假设panelLeft是窗体中的Panel控件
             this.panelLeft.Text = leftRef;
             this.panelRight.Text = rightRef;
-            // 设置窗体的默认尺寸为宽度为800，高度为600
-            this.Size = new Size(900, 400);
+            //this.leftRef = leftRef;
+            //this.rightRef = rightRef;
+            // 取消 TextBox 的文本选中状态
+            panelLeft.SelectionStart = 0;
+            panelLeft.SelectionLength = 0;
+            panelRight.SelectionStart = 0;
+            panelRight.SelectionLength = 0;
+            //// 设置窗体的默认尺寸为宽度为800，高度为600
+            //this.Size = new Size(900, 400);
+            // 获取屏幕的工作区域（不包括任务栏）
+            int screenHeight = Screen.PrimaryScreen.Bounds.Height;
+            int formHeight = this.Height;
+            // 调整窗体位置和大小
+            this.Location = new Point(this.Location.X, screenHeight / 3 - formHeight / 2);
         }
 
         private void UsingleftButton_Click(object sender, EventArgs e)
@@ -74,6 +88,12 @@ namespace DuplicateComparing
         private void CombineButton_Click(object sender, EventArgs e)
         {
             DialogResult = "combine";
+            this.Close();
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = "cancel";
             this.Close();
         }
     }
