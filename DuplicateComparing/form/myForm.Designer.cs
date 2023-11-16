@@ -3,7 +3,7 @@ using DiffPlex.WindowsForms.Controls;
 
 namespace DuplicateComparing
 {
-    partial class ComparingForm
+    partial class myForm
     {
         /// <summary>
         /// Required designer variable.
@@ -153,7 +153,7 @@ namespace DuplicateComparing
             this.panelRight.TabIndex = 1;
             this.panelRight.Text = "";
             // 
-            // ComparingForm
+            // myForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -163,7 +163,7 @@ namespace DuplicateComparing
             this.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "ComparingForm";
+            this.Name = "myForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Duplicates Comparing";
             this.flowLayoutPanel1.ResumeLayout(false);

@@ -37,9 +37,11 @@
     </Reference>
     <Reference Include="DiffPlex, Version=1.7.1.0, Culture=neutral, PublicKeyToken=1d35e91d1bd7bc0f, processorArchitecture=MSIL">
       <HintPath>packages\DiffPlex.1.7.1\lib\net40\DiffPlex.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DiffPlex.Wpf, Version=1.4.0.0, Culture=neutral, PublicKeyToken=1d35e91d1bd7bc0f, processorArchitecture=MSIL">
       <HintPath>packages\DiffPlex.Wpf.1.4.0\lib\net46\DiffPlex.Wpf.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.UltraWinEditors.v11.2">
       <HintPath>..\..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinEditors.v11.2.dll</HintPath>
@@ -142,17 +144,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DuplicateComparing.cs" />
-    <Compile Include="form\ComparingForm.cs">
+    <Compile Include="DuplicateComparing_partial1.cs" />
+    <Compile Include="form\myForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form\ComparingForm.Designer.cs">
-      <DependentUpon>ComparingForm.cs</DependentUpon>
+    <Compile Include="form\myForm.Designer.cs">
+      <DependentUpon>myForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\myForm_partial1.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="form\ComparingForm.resx">
-      <DependentUpon>ComparingForm.cs</DependentUpon>
+    <EmbeddedResource Include="form\myForm.resx">
+      <DependentUpon>myForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

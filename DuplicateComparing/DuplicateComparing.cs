@@ -14,7 +14,7 @@ using SwissAcademic.Controls;
 
 namespace DuplicateComparingAddon
 {
-    public class DuplicateComparing
+    public partial class DuplicateComparing
         :
         CitaviAddOn<MainForm>
     {
@@ -65,7 +65,7 @@ namespace DuplicateComparingAddon
                                 string strRight; //= "";
                                 string fieldName; // = "";
                                 // Title
-                                result = MergeOrCombine(mainForm, references[0].Title, references[1].Title);
+                                result = MergeOrCombine(mainForm, references[0].Title, references[1].Title, titleText:"Title");
                                 if (result == "cancel"){ break;}
                                 else
                                 {
@@ -73,7 +73,7 @@ namespace DuplicateComparingAddon
                                 }
 
                                 // Abstract
-                                result = MergeOrCombine(mainForm, references[0].Abstract.Text, references[1].Abstract.Text);
+                                result = MergeOrCombine(mainForm, references[0].Abstract.Text, references[1].Abstract.Text, titleText: "Abstract");
                                 if (result == "cancel") { break; }
                                 else
                                 {
@@ -88,7 +88,7 @@ namespace DuplicateComparingAddon
                                 }
 
                                 // Additions
-                                result = MergeOrCombine(mainForm, references[0].Additions, references[1].Additions);
+                                result = MergeOrCombine(mainForm, references[0].Additions, references[1].Additions, titleText:"Additions");
                                 if (result == "cancel") { break; }
                                 else
                                 {
@@ -114,7 +114,7 @@ namespace DuplicateComparingAddon
                                     fieldName = "CustomField" + i;
                                     strLeft = references[0].GetType().GetProperty(fieldName).GetValue(references[0]).ToString();
                                     strRight = references[1].GetType().GetProperty(fieldName).GetValue(references[1]).ToString();
-                                    result = MergeOrCombine(mainForm, strLeft, strRight);
+                                    result = MergeOrCombine(mainForm, strLeft, strRight, titleText: fieldName);
                                     if (result == "cancel") { break; }
                                     else
                                     {
@@ -133,7 +133,7 @@ namespace DuplicateComparingAddon
                                 {
                                     strLeft = references[0].GetType().GetProperty(fieldName_i).GetValue(references[0]).ToString();
                                     strRight = references[1].GetType().GetProperty(fieldName_i).GetValue(references[1]).ToString();
-                                    result = MergeOrCombine(mainForm, strLeft, strRight);
+                                    result = MergeOrCombine(mainForm, strLeft, strRight, titleText: fieldName_i);
                                     if (result == "cancel") { break; }
                                     else
                                     {
@@ -141,7 +141,7 @@ namespace DuplicateComparingAddon
                                     }
                                 }
                                 // "TableOfContents"
-                                result = MergeOrCombine(mainForm, references[0].TableOfContents.Text, references[1].TableOfContents.Text, true);
+                                result = MergeOrCombine(mainForm, references[0].TableOfContents.Text, references[1].TableOfContents.Text, titleText: "TableOfContents", returnLRword: true);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -157,7 +157,7 @@ namespace DuplicateComparingAddon
                                 }
 
                                 //"Isbn"
-                                result = MergeOrCombine(mainForm, references[0].Isbn.ToString(), references[1].Isbn.ToString(), true);
+                                result = MergeOrCombine(mainForm, references[0].Isbn.ToString(), references[1].Isbn.ToString(), titleText: "Isbn", returnLRword: true);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -173,11 +173,11 @@ namespace DuplicateComparingAddon
                                 }
 
                                 // Periodical, naive approach...      
-                                result = MergeOrCombine(mainForm, references[0].Periodical.ToString(), references[1].Periodical.ToString(),true);
+                                result = MergeOrCombine(mainForm, references[0].Periodical.ToString(), references[1].Periodical.ToString(), titleText: "Periodical/Journal Name", returnLRword: true);
                                 while (result == "combine")
                                 {
                                     MessageBox.Show("Periodical can not combine!");
-                                    result = MergeOrCombine(mainForm, references[0].Periodical.ToString(), references[1].Periodical.ToString());
+                                    result = MergeOrCombine(mainForm, references[0].Periodical.ToString(), references[1].Periodical.ToString(), titleText: "Periodical/Journal Name", returnLRword: true);
                                 }
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
@@ -195,7 +195,7 @@ namespace DuplicateComparingAddon
                                     fieldName = "SpecificField" + i;
                                     strLeft = references[0].GetType().GetProperty(fieldName).GetValue(references[0]).ToString();
                                     strRight = references[1].GetType().GetProperty(fieldName).GetValue(references[1]).ToString();
-                                    result = MergeOrCombine(mainForm, strLeft, strRight);
+                                    result = MergeOrCombine(mainForm, strLeft, strRight, titleText: fieldName, returnLRword: true);
                                     if (result == "cancel") { break; }
                                     else
                                     {
@@ -205,7 +205,7 @@ namespace DuplicateComparingAddon
                                 }
 
                                 // Evaluation, naive approach...
-                                result = MergeOrCombine(mainForm, references[0].Evaluation.Text, references[1].Evaluation.Text, true);
+                                result = MergeOrCombine(mainForm, references[0].Evaluation.Text, references[1].Evaluation.Text, titleText: "Evaluation", returnLRword: true);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -238,7 +238,7 @@ namespace DuplicateComparingAddon
                                 // Groups
                                 strLeft = GetCategoryStr(references[0], "Group");
                                 strRight = GetCategoryStr(references[1], "Group");
-                                result = MergeOrCombine(mainForm, strLeft, strRight,true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, titleText: "Groups", returnLRword: true, diffplex: false);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -257,7 +257,7 @@ namespace DuplicateComparingAddon
                                 // Category
                                 strLeft = GetCategoryStr(references[0], "Category");
                                 strRight = GetCategoryStr(references[1], "Category");
-                                result = MergeOrCombine(mainForm, strLeft, strRight, true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, titleText: "Category", returnLRword: true, diffplex: false);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -275,7 +275,7 @@ namespace DuplicateComparingAddon
                                 // Locations
                                 strLeft = GetCategoryStr(references[0], "Location");
                                 strRight = GetCategoryStr(references[1], "Location");
-                                result = MergeOrCombine(mainForm, strLeft, strRight, true,true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, titleText: "Location", returnLRword: true, diffplex: false);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -294,7 +294,7 @@ namespace DuplicateComparingAddon
                                 // Keyword
                                 strLeft = GetCategoryStr(references[0], "Keyword");
                                 strRight = GetCategoryStr(references[1], "Keyword");
-                                result = MergeOrCombine(mainForm, strLeft, strRight, true, true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, titleText: "Keyword", returnLRword: true, diffplex: false);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -313,7 +313,7 @@ namespace DuplicateComparingAddon
                                 //Author
                                 strLeft = GetCategoryStr(references[0], "Author");
                                 strRight = GetCategoryStr(references[1], "Author");
-                                result = MergeOrCombine(mainForm, strLeft, strRight, true, true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, titleText: "Author", returnLRword: true, diffplex: false);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -332,7 +332,7 @@ namespace DuplicateComparingAddon
                                 //ReferenceCollaborator
                                 strLeft = GetCategoryStr(references[0], "Collaborator");
                                 strRight = GetCategoryStr(references[1], "Collaborator");
-                                result = MergeOrCombine(mainForm, strLeft, strRight, true, true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, titleText: "Collaborator", returnLRword: true, diffplex: false);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -351,7 +351,7 @@ namespace DuplicateComparingAddon
                                 //Editors
                                 strLeft = GetCategoryStr(references[0], "Editor");
                                 strRight = GetCategoryStr(references[1], "Editor");
-                                result = MergeOrCombine(mainForm, strLeft, strRight, true, true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, titleText: "Editor", returnLRword: true, diffplex: false);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -369,7 +369,7 @@ namespace DuplicateComparingAddon
                                 //Organization
                                 strLeft = GetCategoryStr(references[0], "Organization");
                                 strRight = GetCategoryStr(references[1], "Organization");
-                                result = MergeOrCombine(mainForm, strLeft, strRight, true, true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, titleText: "Organization", returnLRword: true, diffplex: false);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -388,7 +388,7 @@ namespace DuplicateComparingAddon
                                 //OthersInvolved
                                 strLeft = GetCategoryStr(references[0], "OthersInvolved");
                                 strRight = GetCategoryStr(references[1], "OthersInvolved");
-                                result = MergeOrCombine(mainForm, strLeft, strRight, true, true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, titleText: "OthersInvolved", returnLRword: true, diffplex: false);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -407,7 +407,7 @@ namespace DuplicateComparingAddon
                                 //Publishers
                                 strLeft = GetCategoryStr(references[0], "Publishers");
                                 strRight = GetCategoryStr(references[1], "Publishers");
-                                result = MergeOrCombine(mainForm, strLeft, strRight, true, true);
+                                result = MergeOrCombine(mainForm, strLeft, strRight, titleText: "Publishers", returnLRword: true, diffplex: false);
                                 if (result == "cancel") { break; }
                                 else if (result == "left")
                                 {
@@ -471,289 +471,6 @@ namespace DuplicateComparingAddon
             base.OnBeforePerformingCommand(mainForm, e);
         }
  
-        private static string MergeOrCombine(MainForm mainform, string strLeft, string strRight,bool returnLRValue=false,bool doi = false)
-        {
-            strLeft = strLeft.Trim();
-            strRight = strRight.Trim();
-            if (!returnLRValue)
-            {
-                if (String.Compare(strLeft, strRight, false) == 0)
-                {
-                    // easy case, they are the same!
-                    return strLeft;
-                }
-                else if (strLeft.Length == 0)
-                {
-                    return strRight;
-                }
-                else if (strRight.Length == 0)
-                {
-                    return strLeft;
-                }
-                else
-                {
-                    if (!doi)
-                    {
-                        using (var dialog = new ComparingForm(mainform, strLeft, strRight))
-                        {
-                            if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
-                            {
-                                string result = dialog.DialogResult; // 获取对话框返回的结果
-                                if (result == "left")
-                                {
-                                    return strLeft;
-                                    //references[0].Title = references[0].Title;
-                                }
-                                else if (result == "right")
-                                {
-                                    return strRight;
-                                }
-                                else if (result == "combine")
-                                {
-                                    return strLeft + " // " + strRight;
-                                }
-                                else
-                                {
-                                    return "cancel";
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Code error,dialog window did not open!");
-                                return "cancel";
-                            }
-                        }
-                    }
-                    else
-                    {
-                        using (var dialog = new ComparingForm(mainform, strLeft, strRight))
-                        {
-                            if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
-                            {
-                                string result = dialog.DialogResult; // 获取对话框返回的结果
-                                if (result == "left")
-                                {
-                                    return strLeft;
-                                    //references[0].Title = references[0].Title;
-                                }
-                                else if (result == "right")
-                                {
-                                    return strRight;
-                                }
-                                else if (result == "combine")
-                                {
-                                    return strLeft + " // " + strRight;
-                                }
-                                else
-                                {
-                                    return "cancel";
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Code error,dialog window did not open!");
-                                return "cancel";
-                            }
-                        }
-                    }
-                    
-                }
-            }
-            else
-            {
-                
-                if (String.Compare(strLeft, strRight, false) == 0)
-                {
-                    return "left";
-                    // easy case, they are the same!
-                }
-                else if (strLeft.Length == 0)
-                {
-                    return "right";
-                }
-                else if (strRight.Length == 0)
-                {
-                    return "left";
-                }
-                else
-                {
-                    if (doi)
-                    {
-                        using (var dialog = new ComparingForm(mainform, strLeft, strRight,true))
-                        {
-                            if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
-                            {
-                                return dialog.DialogResult; // 获取对话框返回的结果
-                            }
-                            else
-                            {
-                                MessageBox.Show("Code error,dialog window did not open!");
-                                return "cancel";
-                            }
-                        }
-                    }
-                    else
-                    {
-                        using (var dialog = new ComparingForm(mainform, strLeft, strRight))
-                        {
-                            if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
-                            {
-                                return dialog.DialogResult; // 获取对话框返回的结果
-                            }
-                            else
-                            {
-                                MessageBox.Show("Code error,dialog window did not open!");
-                                return "cancel";
-                            }
-                        }
-                    }
-                    
-                }
-            }
-
-
-            
-        }
-
-
-        public static string GetCategoryStr(Reference reference, string cateName)
-        {
-            string result="";
-            
-            switch (cateName)
-            {
-                
-                case "Group":
-                    List<Group> groupCategories = reference.Groups.ToList();
-                    List<string> nameString = new List<string>(); // 创建一个空的 List<string>
-                    foreach (Group mygroup in groupCategories)
-                    {
-                        if (reference.Groups == null) continue;
-                        nameString.Add(mygroup.FullName);
-
-                    }
-                    // 将 List 转换为数组
-                    result = GetStringFromArray(nameString);
-                    break;
-                case "Category":
-                    List<Category> categoryRefCategories = reference.Categories.ToList();
-                    List<string> nameString2 = new List<string>(); // 创建一个空的 List<string>
-                    foreach (Category category in categoryRefCategories)
-                    {
-                        if (reference.Categories == null) continue;
-                        nameString2.Add(category.FullName);
-
-                    }
-                    // 将 List 转换为数组
-                    result = GetStringFromArray(nameString2);
-                    break;
-                case "Location":
-                    List<Location> refLocation = reference.Locations.ToList();
-                    List<string> nameString3 = new List<string>(); // 创建一个空的 List<string>
-                    foreach (Location location in refLocation)
-                    {
-                        if (reference.Locations == null) continue;
-                        nameString3.Add(location.FullName);
-                    }
-                    // 将 List 转换为数组
-                    result = GetStringFromArray(nameString3);
-                    break;
-                case "Keyword":
-                    List<Keyword> refKeywords = reference.Keywords.ToList();
-                    List<string> nameString4 = new List<string>(); // 创建一个空的 List<string>
-                    foreach (Keyword keyword in refKeywords)
-                    {
-                        if (reference.Keywords == null) continue;
-                        nameString4.Add(keyword.FullName);
-
-                    }
-                    // 将 List 转换为数组后连接起来
-                    result = GetStringFromArray(nameString4);
-                    break;
-                case "Author":
-                    List<Person> refPersons = reference.Authors.ToList();
-                    List<string> nameString5 = new List<string>(); // 创建一个空的 List<string>
-                    foreach (Person person in refPersons)
-                    {
-                        if (reference.Authors == null) continue;
-                        nameString5.Add(person.FullName);
-                    }
-                    // 将 List 转换为数组后连接起来
-                    result = GetStringFromArray(nameString5);
-                    break;
-                case "Collaborator":
-                    refPersons = reference.Collaborators.ToList();
-                    nameString5 = new List<string>(); // 创建一个空的 List<string>
-                    foreach (Person person in refPersons)
-                    {
-                        if (reference.Collaborators == null) continue;
-                        nameString5.Add(person.FullName);
-                    }
-                    // 将 List 转换为数组后连接起来
-                    result = GetStringFromArray(nameString5);
-                    break;
-                case "Editor": //ReferenceEditor
-                    refPersons = reference.Editors.ToList();
-                    nameString5 = new List<string>(); // 创建一个空的 List<string>
-                    foreach (Person person in refPersons)
-                    {
-                        if (reference.Editors == null) continue;
-                        nameString5.Add(person.FullName);
-                    }
-                    // 将 List 转换为数组后连接起来
-                    result = GetStringFromArray(nameString5);
-                    break;
-                case "Organization": //ReferenceOrganization
-                    refPersons = reference.Organizations.ToList();
-                    nameString5 = new List<string>(); // 创建一个空的 List<string>
-                    foreach (Person person in refPersons)
-                    {
-                        if (reference.Organizations == null) continue;
-                        nameString5.Add(person.FullName);
-                    }
-                    // 将 List 转换为数组后连接起来
-                    result = GetStringFromArray(nameString5);
-                    break;
-                case "OthersInvolved": //ReferenceOthersInvolved
-                    refPersons = reference.OthersInvolved.ToList();
-                    nameString5 = new List<string>(); // 创建一个空的 List<string>
-                    foreach (Person person in refPersons)
-                    {
-                        if (reference.OthersInvolved == null) continue;
-                        nameString5.Add(person.FullName);
-                    }
-                    // 将 List 转换为数组后连接起来
-                    result = GetStringFromArray(nameString5);
-                    break;
-                case "Publishers": //ReferenceOthersInvolved
-                    List<Publisher> refPublishers = reference.Publishers.ToList();
-                    nameString5 = new List<string>(); // 创建一个空的 List<string>
-                    foreach (Publisher publisher in refPublishers)
-                    {
-                        if (reference.OthersInvolved == null) continue;
-                        nameString5.Add(publisher.FullName);
-                    }
-                    // 将 List 转换为数组后连接起来
-                    result = GetStringFromArray(nameString5);
-                    break;
-            }
-            return result;
-
-        }
-
-        public static string GetStringFromArray(List<string> nameString)
-        {
-            string result="";
-            // 将 List 转换为数组
-            string[] strings = nameString.ToArray();
-            Array.Sort(strings);
-            if (strings.Length > 0)
-            {
-                result = string.Join("\r\n", strings); // 如果有两个以上的字符串，用换行符连接它们
-            };
-            return result;
-
-        }
     }
 }
 

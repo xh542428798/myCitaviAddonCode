@@ -46,11 +46,17 @@ Fix the official bug
 
 ## DuplicateComparing
 
-- [ ] **In processing**, compare duplicates like endnote
+- [x] **In processing**, compare duplicates like endnote
+
+
 
 ![img](vx_images/v2-54b25fe6df839ec8904d0261459347f6_r.jpg)
 
+成果图：
 
+![image-20231115071703240](vx_images/image-20231115071703240.png)
+
+![image-20231115071742391](vx_images/image-20231115071742391.png)
 
 ## SwitchToMainWindow
 
