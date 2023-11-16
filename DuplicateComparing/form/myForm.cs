@@ -40,7 +40,7 @@ namespace DuplicateComparing
         {
             InitializeComponent();
             Owner = owner;
-            this.Text = "Duplicates Comparing - " + titleText;
+            this.label1.Text = titleText;
             // 比较单词数组
             if (Comparing)
             {
@@ -95,6 +95,16 @@ namespace DuplicateComparing
         {
             DialogResult = "cancel";
             this.Close();
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
