@@ -424,8 +424,12 @@ namespace DuplicateComparingAddon
                                 }
 
                                 // Quotations
-                                MessageBox.Show("Quotations would merge directly!");
-                                references[0].Quotations.AddRange(references[1].Quotations);
+                                if (references[0].Quotations.Count != 0 || references[0].Quotations.Count != 0)
+                                {
+                                    MessageBox.Show("Quotations would merge directly!");
+                                    references[0].Quotations.AddRange(references[1].Quotations);
+                                }
+                                
 
                                 // ReferenceCollaborator
                                 foreach (Person collaborator in references[1].Collaborators)
