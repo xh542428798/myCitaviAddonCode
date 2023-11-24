@@ -90,5 +90,6 @@ Selenium.WebDriver.MSEdgeDriver.118.0.2088.41 -> Edge 118.0.2088.xx (x64)
 Selenium.WebDriver.4.14.1
 System.Drawing.Common.7.0.0; Newtonsoft.Json.13.0.1 (Install automaticly by Selenium)
 
+## Using immersivetranslate translate PDF
 
-
+![ScrollSpeedInPdfPreview](vx_images/ScrollSpeedInPdfPreview-1700828658584-1.gif)
