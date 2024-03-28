@@ -104,5 +104,9 @@ Selenium.WebDriver.MSEdgeDriver.118.0.2088.41 -> Edge 118.0.2088.xx (x64)
 Selenium.WebDriver.4.14.1
 System.Drawing.Common.7.0.0; Newtonsoft.Json.13.0.1 (Install automaticly by Selenium)
 
+![ScrollSpeedInPdfPreview](vx_images/ScrollSpeedInPdfPreview-1700828658584-1.gif)
 
+## JumpToLastPositionAfterActionExecutionAddon
+个附加功能在Citavi的PDF阅读器的工具菜单中添加了命令“跳转到上一个位置...”，快捷键为ALT+F3。如果文档中包含内部链接，并且通过点击内部链接进行了跳转，该命令就会生效。在执行跳转之前的最后位置会被保存，只要文档保持打开状态，这个位置就会一直被保存。
 
+适配 Citavi 6.18
