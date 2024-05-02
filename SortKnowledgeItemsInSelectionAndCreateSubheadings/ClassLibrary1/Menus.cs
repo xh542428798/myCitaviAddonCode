@@ -35,13 +35,13 @@ namespace SortKnowledge
             // Knowledge Item Pop-Up Menu
 
             var knowledgeOrganizerKnowledgeItemsContextMenu = CommandbarMenu.Create(mainForm.GetKnowledgeOrganizerKnowledgeItemsCommandbarManager().ToolbarsManager.Tools["KnowledgeOrganizerKnowledgeItemsContextMenu"] as PopupMenuTool);
-            var commandbarButtonKnowledgeItemsSortInCategory = knowledgeOrganizerKnowledgeItemsContextMenu.AddCommandbarButton("SortKnowledgeItemsInSelection", "Sort selected knowledge items in current category");
+            var commandbarButtonKnowledgeItemsSortInCategory = knowledgeOrganizerKnowledgeItemsContextMenu.AddCommandbarButton("SortKnowledgeItemsInSelection2", "Sort selected knowledge items in current category");
 
             // Knowledge Organizer Category Pop-Up Menu
 
             var knowledgeOrganizerCategoriesColumnContextMenu = CommandbarMenu.Create(mainForm.GetKnowledgeOrganizerCategoriesCommandbarManager().ToolbarsManager.Tools["KnowledgeOrganizerCategoriesColumnContextMenu"] as PopupMenuTool);
 
-            var commandbarButtonSortKnowledgeItemsInCategory = knowledgeOrganizerCategoriesColumnContextMenu.AddCommandbarButton("SortKnowledgeItemsInCategory", "Sort all knowledge items in this category by reference and position");
+            var commandbarButtonSortKnowledgeItemsInCategory = knowledgeOrganizerCategoriesColumnContextMenu.AddCommandbarButton("SortKnowledgeItemsInCategory2", "Sort all knowledge items in this category by reference and position");
 
             // Fin
 
@@ -53,7 +53,7 @@ namespace SortKnowledge
             switch (e.Key)
             {
                 #region KnowledgeOrganizerKnowledgeItemsContextMenu
-                case "SortKnowledgeItemsInSelection":
+                case "SortKnowledgeItemsInSelection2":
                     {
                         e.Handled = true;
 
@@ -73,7 +73,7 @@ namespace SortKnowledge
                     }
                     break;
 
-                case "SortKnowledgeItemsInCategory":
+                case "SortKnowledgeItemsInCategory2":
                     {
                         e.Handled = true;
 
