@@ -100,3 +100,6 @@ System.Drawing.Common.7.0.0; Newtonsoft.Json.13.0.1 (Install automaticly by Sele
 This add-on adds in the Tools menu of Citavi's PDF Viewer the command Jump to previous position... with the key combination ALT+F3. The command is active if a jump has been made in the document by clicking on an internal link stored in the document. The last position before a jump is executed is always saved and this as long as the document is open.
 
 Adapt to citavi 6.18
+
+## SortKnowledgeItemsInSelectionAndCreateSubheadings
+Sort the selected knowledges in Knowledge based on two aspects: literature and PDF page numbers. Then, add a subheading before each document's knowledges.
