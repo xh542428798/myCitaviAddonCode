@@ -19,7 +19,7 @@ using pdftron.Common;
 using pdftron.SDF;
 using pdftron.PDF;
 
-namespace QuotationsToolbox
+namespace SortKnowledge
 {
     public class PageWidth
     {

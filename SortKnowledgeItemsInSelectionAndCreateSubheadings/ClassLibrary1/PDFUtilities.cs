@@ -17,7 +17,7 @@ using SwissAcademic.Pdf.Analysis;
 
 using pdftron.PDF;
 
-namespace QuotationsToolbox
+namespace SortKnowledge
 {
     public static class PDFUtilities
     {

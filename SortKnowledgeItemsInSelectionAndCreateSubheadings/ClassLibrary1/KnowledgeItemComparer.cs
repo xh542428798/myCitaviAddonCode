@@ -11,7 +11,7 @@ using SwissAcademic.Citavi.Shell.Controls.Preview;
 using SwissAcademic.Controls.WindowsForms;
 using SwissAcademic.Pdf;
 
-namespace QuotationsToolbox
+namespace SortKnowledge
 {
     class KnowledgeItemComparer : IComparer<KnowledgeItem>
     {

@@ -89,6 +89,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KnowledgeItemInCategorySorter.cs" />
     <Compile Include="Menus.cs" />
     <Compile Include="KnowledgeItemComparer.cs" />
     <Compile Include="KnowledgeItemsInSelectionSorter.cs" />

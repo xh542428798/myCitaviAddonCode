@@ -8,7 +8,7 @@ using System.Linq;
 
 using System.Windows.Forms;
 
-namespace QuotationsToolbox
+namespace SortKnowledge
 {
     public static class PreviewMethods
     {

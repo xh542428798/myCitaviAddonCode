@@ -10,7 +10,7 @@ using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Pdf;
 
-namespace QuotationsToolbox
+namespace SortKnowledge
 {
     public class KnowledgeItemInSelectionSorter
     {
