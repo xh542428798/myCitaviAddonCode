@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/lutz/CitaviAddOnEx</projectUrl>
+    <description>$description$</description>
+    <releaseNotes>Updates for MacroEditorForm support</releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>C# Citavi AddOn</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.6.1" />
+    </dependencies>
+  </metadata>
+</package>

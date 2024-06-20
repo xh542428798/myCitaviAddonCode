@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitaviAddOnEx", "CitaviAddOnEx\CitaviAddOnEx.csproj", "{05227BDE-6BFE-4520-B4BF-B15D2BA0CC45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAddon", "TestAddon\TestAddon.csproj", "{B042E721-3837-42C8-8314-41EA91452FCD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05227BDE-6BFE-4520-B4BF-B15D2BA0CC45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05227BDE-6BFE-4520-B4BF-B15D2BA0CC45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05227BDE-6BFE-4520-B4BF-B15D2BA0CC45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05227BDE-6BFE-4520-B4BF-B15D2BA0CC45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B042E721-3837-42C8-8314-41EA91452FCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B042E721-3837-42C8-8314-41EA91452FCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B042E721-3837-42C8-8314-41EA91452FCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B042E721-3837-42C8-8314-41EA91452FCD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB7AB14E-8A07-4B35-9CA6-D9B8F3B37D32}
+	EndGlobalSection
+EndGlobal
