@@ -41,7 +41,6 @@
     </Reference>
     <Reference Include="CitaviAddOnEx">
       <HintPath>..\..\..\..\Software\CitaviTest\bin\CitaviAddOnEx.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Shared.v11.2, Version=11.2.20112.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <Private>False</Private>
@@ -92,6 +91,7 @@
     <Compile Include="Core\Comparer\StringEqualityComparer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

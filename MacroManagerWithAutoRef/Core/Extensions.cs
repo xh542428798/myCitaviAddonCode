@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace AutoRef
+namespace SwissAcademic.Addons.MacroManagerAddon
 {
     internal static class Extensions
     {
@@ -34,7 +34,7 @@ namespace AutoRef
         {
             var macroEditor = macroEditorForm.GetType().GetField("macroEditor", fieldBindingFlags)?.GetValue(macroEditorForm);
             var compilerParameters = macroEditor?.GetType().GetField("_compilerParameters", fieldBindingFlags)?.GetValue(macroEditor) as CompilerParameters;
-            return compilerParameters?.ReferencedAssemblies.Cast<string>()?.ToList();
+            return compilerParameters?.ReferencedAssemblies.Cast<string>().ToList();
         }
 
         public static void AddAutoRefComments(this MacroEditorForm macroEditorForm, IEnumerable<string> assemblies)
@@ -60,33 +60,7 @@ namespace AutoRef
             macroEditor?.GetType().GetMethod("ResetDotNetProjectResolver", privateMethodBindingFlags)?.Invoke(macroEditor, new object[] { });
             macroEditor?.GetType().GetMethod("RemoveRestrictedAssembliesFromCompilerParameters", privateMethodBindingFlags)?.Invoke(macroEditor, new object[] { });
         }
-        public static string PreprocessMacroCode(this MacroEditorForm macroEditorForm)
-        {
-            var code = macroEditorForm.MacroCode;
-            var references = macroEditorForm.ParseAutoRefComments();
 
-            if (!references.Any()) return code;
-
-            var sb = new StringBuilder();
-            foreach (var refPath in references)
-            {
-                try
-                {
-                    var assemblyName = Assembly.ReflectionOnlyLoadFrom(refPath).GetName().Name;
-                    sb.AppendLine($"using {assemblyName};");
-                }
-                catch
-                {
-                    // 如果加载失败，就忽略这个引用，或者可以添加注释
-                    sb.AppendLine($"// Failed to load reference from: {refPath}");
-                }
-            }
-
-            sb.AppendLine(); // 添加一个空行
-            sb.AppendLine(code);
-
-            return sb.ToString();
-        }
         public static void RemoveAutoRefComments(this MacroEditorForm macroEditorForm)
         {
             var codeLines = macroEditorForm.MacroCode.Split(new char[] { '\n' }).ToList();
