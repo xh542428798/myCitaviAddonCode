@@ -143,23 +143,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComprehensiveMergeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DuplicateComparing.cs" />
-    <Compile Include="DuplicateComparing_partial1.cs" />
-    <Compile Include="form\myForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="form\myForm.Designer.cs">
-      <DependentUpon>myForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="form\myForm_partial1.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="form\myForm.resx">
-      <DependentUpon>myForm.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
