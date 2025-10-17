@@ -21,9 +21,9 @@ namespace DuplicateComparingAddon
     {
         public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            mainForm.GetMainCommandbarManager().GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu).GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References).InsertCommandbarButton(14, "Merge duplicates", "Merge the selected references");
+            mainForm.GetMainCommandbarManager().GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu).GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References).InsertCommandbarButton(14, "Merge duplicates", "Merge the selected references", CommandbarItemStyle.ImageAndText, SwissAcademic.Citavi.Shell.Properties.Resources.Merge);
             //button.Shortcut = (System.Windows.Forms.Shortcut)(System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.W);
-            mainForm.GetReferenceEditorNavigationCommandbarManager().GetCommandbar(MainFormReferenceEditorNavigationCommandbarId.Toolbar).GetCommandbarMenu(MainFormReferenceEditorNavigationCommandbarMenuId.Tools).AddCommandbarButton("Merge duplicates", "Merge the selected references");
+            mainForm.GetReferenceEditorNavigationCommandbarManager().GetCommandbar(MainFormReferenceEditorNavigationCommandbarId.Toolbar).GetCommandbarMenu(MainFormReferenceEditorNavigationCommandbarMenuId.Tools).AddCommandbarButton("Merge duplicates", "Merge the selected references",CommandbarItemStyle.ImageAndText, SwissAcademic.Citavi.Shell.Properties.Resources.Merge);
         }
 
         public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
@@ -56,7 +56,10 @@ namespace DuplicateComparingAddon
                                     references[0] = references[1];
                                     references[1] = temp;
                                 }
-
+                                // 强制垃圾回收，清理之前的资源
+                                GC.Collect();
+                                GC.WaitForPendingFinalizers();
+                                GC.Collect();
                                 // 使用新的综合比较窗体
                                 using (var dialog = new ComprehensiveMergeForm(mainForm, references[0], references[1]))
                                 {

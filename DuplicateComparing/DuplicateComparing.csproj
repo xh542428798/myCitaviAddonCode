@@ -35,14 +35,6 @@
       <HintPath>..\..\..\Software\CitaviTest\bin\Citavi.exe</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DiffPlex, Version=1.7.1.0, Culture=neutral, PublicKeyToken=1d35e91d1bd7bc0f, processorArchitecture=MSIL">
-      <HintPath>packages\DiffPlex.1.7.1\lib\net40\DiffPlex.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DiffPlex.Wpf, Version=1.4.0.0, Culture=neutral, PublicKeyToken=1d35e91d1bd7bc0f, processorArchitecture=MSIL">
-      <HintPath>packages\DiffPlex.Wpf.1.4.0\lib\net46\DiffPlex.Wpf.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Infragistics4.Win.UltraWinEditors.v11.2">
       <HintPath>..\..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinEditors.v11.2.dll</HintPath>
       <Private>False</Private>
@@ -148,13 +140,6 @@
     </Compile>
     <Compile Include="DuplicateComparing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DiffPlex.ico" />
-    <Content Include="License.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

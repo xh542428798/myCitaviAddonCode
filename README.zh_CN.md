@@ -51,10 +51,12 @@ Fix the official bug
 
 ## DuplicateComparing
 
-- [ ] **In processing**, compare duplicates like endnote
-- [ ] **进行中**, 像endnote一样对比重复文件
-![img](vx_images/v2-54b25fe6df839ec8904d0261459347f6_r.jpg)
+- [ ] **Done**, compare duplicates like endnote
+- [ ] **完成**, 像endnote一样对比重复文件
 
+效果如下：
+![](vx_images/42724170397680.png)
+![](vx_images/32762280735194.png)
 
 
 ## SwitchToMainWindow
