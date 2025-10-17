@@ -90,6 +90,7 @@ Note: 将插件文件拷贝到 Addon folder, 没有二级文件夹.
 
 
 ## TranslateGPTInCitavi
+> 删除，项目放弃
 
 Open a chatGPT website, communicating and exchanging data between Citavi and web pages, so that we can batch translate Title and Abstract in Citavi, and ask chatGPT quicker. 
 (Note: This method simulates browser access to the ChatGPT mirror website, which may be shut down at any time, requiring frequent adjustments.)
@@ -113,3 +114,8 @@ System.Drawing.Common.7.0.0; Newtonsoft.Json.13.0.1 (Install automaticly by Sele
 
 ## SortKnowledgeItemsInSelectionAndCreateSubheadings
 对Knowledge里选中的知识点按文献、PDF页码这两个方面进行排序，然后添加在每个文献的Knowledge前面添加一个subheading
+
+## MacroManagerWithAutoRef
+MacroManager插件加入AutoRef插件的功能，在MacroManager的edit和run运行的时候能够自动加载引用。
+> 原版AutoRef只有先打开macros editor，然后open一个新的宏文件，才会自动加载引用，相对鸡肋。
+
