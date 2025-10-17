@@ -201,7 +201,7 @@
     <Compile Include="Settings\WorkSpace.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="addon.png">
+    <None Include="addonReferenceGridFormWorkSpaceEditor.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="manifest.json">
@@ -211,9 +211,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\WorkSpaceEditorForm.resx">
       <DependentUpon>WorkSpaceEditorForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.de.resx">
-      <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -225,7 +222,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Resources\add.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\down.png" />
@@ -238,6 +234,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
