@@ -35,6 +35,24 @@
       <HintPath>..\..\..\..\Software\CitaviTest\bin\Citavi.exe</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Infragistics4.Shared.v11.2">
+      <HintPath>..\..\..\Software\CitaviTest\bin\Infragistics4.Shared.v11.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinGrid.v11.2">
+      <HintPath>..\..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinGrid.v11.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinStatusBar.v11.2">
+      <HintPath>..\..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinStatusBar.v11.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinTabControl.v11.2">
+      <HintPath>..\..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinTabControl.v11.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinToolbars.v11.2">
+      <HintPath>..\..\..\Software\CitaviTest\bin\Infragistics4.Win.UltraWinToolbars.v11.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.v11.2">
+      <HintPath>..\..\..\Software\CitaviTest\bin\Infragistics4.Win.v11.2.dll</HintPath>
+    </Reference>
     <Reference Include="SwissAcademic">
       <HintPath>..\..\..\..\Software\CitaviTest\bin\SwissAcademic.dll</HintPath>
       <Private>False</Private>
