@@ -94,7 +94,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\thumbs.png" />
+    <Resource Include="Resources\TranslationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

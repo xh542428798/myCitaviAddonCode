@@ -59,7 +59,7 @@ namespace PDFThumbnailTranslation
 
                 var bitmapImage = new BitmapImage();
                 bitmapImage.BeginInit();
-                bitmapImage.UriSource = new Uri("/PDFThumbnailAddon;component/Resources/thumbs.png", UriKind.RelativeOrAbsolute);
+                bitmapImage.UriSource = new Uri("/PDFThumbnailTranslation;component/Resources/TranslationIcon.png", UriKind.RelativeOrAbsolute);
                 bitmapImage.EndInit();
 
                 var translationControl = new TranslationControl(mainForm);
