@@ -86,11 +86,9 @@ namespace PDFThumbnailTranslation
         #region EventHandlers
         // 在 Addon.cs 的 EventHandlers 区域
 
-        // 修改后的方法，注意参数从 SelectionChangedEventArgs e 变成了 EventArgs e
+        // 在 Addon.cs 中修改 Viewer_SelectionChanged 方法
         private void Viewer_SelectionChanged(object sender, EventArgs e)
         {
-            // 这个事件会在PDF中的选择发生变化时触发
-            // 我们在这里找到翻译控件并更新它
             var pdfViewer = sender as PdfViewControl;
             if (pdfViewer?.GetSideBar() is System.Windows.Controls.TabControl tabControl)
             {
@@ -99,12 +97,17 @@ namespace PDFThumbnailTranslation
 
                 if (translationTabItem?.Content is TranslationControl translationControl)
                 {
-                    // 只有选择真正变化时，才调用更新
+                    // --- 核心修改：直接从UI控件读取实时状态，而不是从配置文件 ---
+                    if (translationControl.AutoTranslateCheckBox.IsChecked != true)
+                    {
+                        return; // 如果UI上的复选框未勾选，就什么都不做
+                    }
+
+                    // 只有UI上勾选了，才会执行下面的逻辑
                     translationControl.OnSelectionChanged();
                 }
             }
         }
-
         // 优化点 1 & 2：在这里添加按钮，确保每个新文档都会尝试添加
         private void Viewer_DocumentChanged(object sender, EventArgs e)
         {

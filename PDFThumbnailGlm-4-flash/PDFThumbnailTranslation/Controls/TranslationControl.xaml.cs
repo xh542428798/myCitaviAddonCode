@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using SwissAcademic.Citavi.Shell;
 using Newtonsoft.Json; // 确保引用了 Newtonsoft.Json
 using System.Collections.Generic;
+using System.Windows.Input;
 
 namespace PDFThumbnailTranslation
 {
@@ -151,6 +152,13 @@ namespace PDFThumbnailTranslation
             // 这样，SourceTextBox 的内容就不会被PDF选中的文本覆盖，用户可以自由编辑
         }
 
+
+        // 在 TranslationControl 类中添加这个新方法
+        private void ClearSourceButton_Click(object sender, RoutedEventArgs e)
+        {
+            // 直接清空原文文本框的内容
+            SourceTextBox.Text = "";
+        }
         // 清空翻译界面的内容
         public void ClearContent()
         {

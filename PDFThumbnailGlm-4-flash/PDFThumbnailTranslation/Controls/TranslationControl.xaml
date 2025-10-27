@@ -57,7 +57,24 @@
         </Grid.RowDefinitions>
 
         <!-- 原文区域 -->
-        <Label Grid.Row="0" Content="原文:" FontWeight="Bold"/>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- 左侧的标题 -->
+            <Label Grid.Column="0" Content="原文:" FontWeight="Bold" VerticalAlignment="Center"/>
+
+            <!-- 右侧的清空按钮 -->
+            <Button Grid.Column="1" 
+            Name="ClearSourceButton" 
+            Content="清空文本" 
+            Padding="8,2"
+            ToolTip="在文本框中Ctrl+A无效，请用此按钮清空文本"
+            Click="ClearSourceButton_Click"
+            HorizontalAlignment="Right"/>
+        </Grid>
         <TextBox Grid.Row="1" Name="SourceTextBox" 
                  TextWrapping="Wrap" 
                  VerticalScrollBarVisibility="Auto" 
