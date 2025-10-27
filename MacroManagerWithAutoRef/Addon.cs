@@ -81,18 +81,24 @@ namespace SwissAcademic.Addons.MacroManagerAddon
 
                                 var editor = GetOrCreateMacroEditorForm(hide, out bool hidden, out bool isNew);
 
-                                // ===== AutoRef 集成开始：在执行前加载引用 =====
-                                var macroCode = File.ReadAllText(macro.Path);
-                                var tempEditor = new MacroEditorForm(); // 创建一个临时实例来使用扩展方法
-                                tempEditor.MacroCode = macroCode;
+                                // ===== 修正后的 AutoRef 集成逻辑 =====
+                                // 1. 先设置文件路径，这样 GetMacroDirectory() 才能工作
+                                editor.SetFilePath(macro.Path);
 
-                                var references = tempEditor.ParseAutoRefComments();
+                                // 2. 读取并设置代码（此时代码还包含 autoref 注释）
+                                editor.MacroCode = File.ReadAllText(macro.Path);
+
+                                // 3. 使用同一个 editor 实例来解析注释
+                                var references = editor.ParseAutoRefComments();
                                 if (references.Any())
                                 {
-                                    // 直接使用上面已经获取到的 editor 实例
+                                    // 4. 加载引用
                                     editor.AddReferences(references);
                                 }
-                                // ===== AutoRef 集成结束 =====
+
+                                // 5. 移除注释，只留下干净的代码
+                                editor.RemoveAutoRefComments();
+                                // ===== 修正结束 =====
 
                                 if (!isNew && editor.IsDirty())
                                 {
@@ -102,8 +108,8 @@ namespace SwissAcademic.Addons.MacroManagerAddon
                                     }
                                 }
 
-                                editor.MacroCode = File.ReadAllText(macro.Path);
-                                editor.SetFilePath(macro.Path);
+                                //editor.MacroCode = File.ReadAllText(macro.Path);
+                                //editor.SetFilePath(macro.Path);
                                 editor.Activate();
 
                                 if (macro.Action == MacroAction.Run) editor.Run();
