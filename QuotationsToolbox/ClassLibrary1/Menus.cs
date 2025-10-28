@@ -414,17 +414,30 @@ namespace QuotationsToolbox
         {
             if (Program.ActiveProjectShell.PrimaryMainForm.ActiveWorkspace == MainFormWorkspace.KnowledgeOrganizer)
             {
-                SmartRepeater<KnowledgeItem> KnowledgeItemSmartRepeater = (SmartRepeater<KnowledgeItem>)Program.ActiveProjectShell.PrimaryMainForm.Controls.Find("SmartRepeater", true).FirstOrDefault();
-
+                SmartRepeater<KnowledgeItem> KnowledgeItemSmartRepeater = Program.ActiveProjectShell.PrimaryMainForm.Controls.Find("SmartRepeater", true).FirstOrDefault() as SmartRepeater<KnowledgeItem>;
                 QuotationSmartRepeater quotationSmartRepeaterAsQuotationSmartRepeater = Program.ActiveProjectShell.PrimaryMainForm.Controls.Find("knowledgeItemPreviewSmartRepeater", true).FirstOrDefault() as QuotationSmartRepeater;
 
-                KnowledgeItemSmartRepeater.ActiveListItemChanged += KnowledgeItemPreviewSmartRepeater_ActiveListItemChanged;
+                // 【关键修复】在使用控件前，检查它们是否为 null
+                if (KnowledgeItemSmartRepeater != null)
+                {
+                    KnowledgeItemSmartRepeater.ActiveListItemChanged += KnowledgeItemPreviewSmartRepeater_ActiveListItemChanged;
+                }
+
+                if (quotationSmartRepeaterAsQuotationSmartRepeater != null)
+                {
+                    // 注意：这里你可能不需要订阅这个事件，但为了安全起见也检查一下
+                    // quotationSmartRepeaterAsQuotationSmartRepeater.ActiveListItemChanged += ...;
+                }
             }
             else if (Program.ActiveProjectShell.PrimaryMainForm.ActiveWorkspace == MainFormWorkspace.ReferenceEditor)
             {
                 QuotationSmartRepeater quotationSmartRepeaterAsQuotationSmartRepeater = Program.ActiveProjectShell.PrimaryMainForm.Controls.Find("quotationSmartRepeater", true).FirstOrDefault() as QuotationSmartRepeater;
 
-                quotationSmartRepeaterAsQuotationSmartRepeater.ActiveListItemChanged += QuotationSmartRepeater_ActiveListItemChanged;
+                // 【关键修复】同样地，检查控件是否为 null
+                if (quotationSmartRepeaterAsQuotationSmartRepeater != null)
+                {
+                    quotationSmartRepeaterAsQuotationSmartRepeater.ActiveListItemChanged += QuotationSmartRepeater_ActiveListItemChanged;
+                }
             }
         }
 
@@ -450,9 +463,18 @@ namespace QuotationsToolbox
 
         void KnowledgeItemPreviewSmartRepeater_ActiveListItemChanged(object o, EventArgs a)
         {
+            // 【关键修复】增加工作区检查，只在Knowledge界面生效
+            if (Program.ActiveProjectShell.PrimaryMainForm.ActiveWorkspace != MainFormWorkspace.KnowledgeOrganizer)
+            {
+                return; // 如果不是Knowledge界面，直接退出，什么都不做
+            }
             if (Program.ActiveProjectShell.PrimaryMainForm.GetSelectedKnowledgeItems().Count == 0) return;
 
-            KnowledgeItem activeQuotation = Program.ActiveProjectShell.PrimaryMainForm.GetSelectedKnowledgeItems().FirstOrDefault();
+            // 【关键修复】在这里增加一个对 activeQuotation 本身的空值检查
+            var activeQuotations = Program.ActiveProjectShell.PrimaryMainForm.GetSelectedKnowledgeItems();
+            if (activeQuotations == null || activeQuotations.Count == 0) return;
+            KnowledgeItem activeQuotation = activeQuotations.FirstOrDefault();
+            // 现在可以安全地使用 activeQuotation 了，因为我们已经确定集合不为空
             if (activeQuotation.EntityLinks == null) return;
             if (activeQuotation.EntityLinks.Where(e => e.Indication == EntityLink.PdfKnowledgeItemIndication).Count() == 0) return;
 
