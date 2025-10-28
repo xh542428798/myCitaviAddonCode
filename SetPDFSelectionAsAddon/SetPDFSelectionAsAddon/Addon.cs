@@ -12,7 +12,8 @@ namespace SetPDFSelectionAs
         const string Keys_Button_Title = "SetPDFSelectionAsAddon.Button_Title";
         const string Keys_Button_Author_FirstName_LastName = "SetPDFSelectionAsAddon.Button_Author_FirstName_LastName";
         const string Keys_Button_Author_LastName_FirstName = "SetPDFSelectionAsAddon.Button_Author_LastName_FirstName";
-
+        // 【新增】为中国姓名按钮添加常量
+        const string Keys_Button_Chinese_Name = "SetPDFSelectionAsAddon.Button_Chinese_Name";
         #endregion
 
         #region Methods
@@ -24,6 +25,8 @@ namespace SetPDFSelectionAs
 
             mainForm.GetPreviewCommandbar(MainFormPreviewCommandbarId.Toolbar).GetCommandbarMenu(MainFormPreviewCommandbarMenuId.More).InsertCommandbarButton(4, Keys_Button_Author_FirstName_LastName, SetPDFSelectionAsAddonResources.Button_Author_FirstName_LastName);
             mainForm.GetPreviewCommandbar(MainFormPreviewCommandbarId.Toolbar).GetCommandbarMenu(MainFormPreviewCommandbarMenuId.More).InsertCommandbarButton(5, Keys_Button_Author_LastName_FirstName, SetPDFSelectionAsAddonResources.Button_Author_LastName_FirstName);
+            // 【新增】添加中国姓名按钮
+            mainForm.GetPreviewCommandbar(MainFormPreviewCommandbarId.Toolbar).GetCommandbarMenu(MainFormPreviewCommandbarMenuId.More).InsertCommandbarButton(6, Keys_Button_Chinese_Name, SetPDFSelectionAsAddonResources.Button_Chinese_Name);
 
             base.OnHostingFormLoaded(mainForm);
         }
@@ -38,6 +41,9 @@ namespace SetPDFSelectionAs
 
             button = mainForm.GetPreviewCommandbar(MainFormPreviewCommandbarId.Toolbar).GetCommandbarMenu(MainFormPreviewCommandbarMenuId.More).GetCommandbarButton(Keys_Button_Author_LastName_FirstName);
             if (button != null) button.Text = SetPDFSelectionAsAddonResources.Button_Author_LastName_FirstName;
+            // 【新增】本地化中国姓名按钮
+            button = mainForm.GetPreviewCommandbar(MainFormPreviewCommandbarId.Toolbar).GetCommandbarMenu(MainFormPreviewCommandbarMenuId.More).GetCommandbarButton(Keys_Button_Chinese_Name);
+            if (button != null) button.Text = SetPDFSelectionAsAddonResources.Button_Chinese_Name;
 
             base.OnLocalizing(mainForm);
         }
@@ -76,7 +82,30 @@ namespace SetPDFSelectionAs
                             mainForm.PreviewControl.ClearSelection();
                             break;
                         }
+                    // 【新增】处理中国姓名的逻辑
+                    case (Keys_Button_Chinese_Name):
+                        {
+                            var selectionAsText = mainForm.PreviewControl.GetSelectionAsText();
 
+                            // 1. 清理字符串：去掉前后和中间的所有空格
+                            string cleanedName = System.Text.RegularExpressions.Regex.Replace(selectionAsText, @"\s", "");
+
+                            if (!string.IsNullOrEmpty(cleanedName))
+                            {
+                                string lastName = cleanedName.Substring(0, 1); // 第一个字是姓
+                                string firstName = cleanedName.Substring(1);   // 后面的都是名
+
+                                // 创建一个新的 Person 对象
+                                var person = new Person(reference.Project);
+                                person.LastName = lastName;
+                                person.FirstName = firstName;
+
+                                reference.Authors.Add(person);
+                            }
+
+                            mainForm.PreviewControl.ClearSelection();
+                            break;
+                        }
                     default:
                         {
                             e.Handled = false;
@@ -103,6 +132,9 @@ namespace SetPDFSelectionAs
 
                 button = mainForm.GetPreviewCommandbar(MainFormPreviewCommandbarId.Toolbar).GetCommandbarMenu(MainFormPreviewCommandbarMenuId.More).GetCommandbarButton(Keys_Button_Author_LastName_FirstName);
                 if (button != null) button.Visible = isTextSelected;
+                // 【新增】控制中国姓名按钮的可见性
+                button = mainForm.GetPreviewCommandbar(MainFormPreviewCommandbarId.Toolbar).GetCommandbarMenu(MainFormPreviewCommandbarMenuId.More).GetCommandbarButton(Keys_Button_Chinese_Name);
+                if (button != null) button.Visible = isTextSelected;
             }
             else
             {
@@ -113,6 +145,9 @@ namespace SetPDFSelectionAs
                 if (button != null) button.Visible = false;
 
                 button = mainForm.GetPreviewCommandbar(MainFormPreviewCommandbarId.Toolbar).GetCommandbarMenu(MainFormPreviewCommandbarMenuId.More).GetCommandbarButton(Keys_Button_Author_LastName_FirstName);
+                if (button != null) button.Visible = false;
+                // 【新增】在没有PDF预览时隐藏按钮
+                button = mainForm.GetPreviewCommandbar(MainFormPreviewCommandbarId.Toolbar).GetCommandbarMenu(MainFormPreviewCommandbarMenuId.More).GetCommandbarButton(Keys_Button_Chinese_Name);
                 if (button != null) button.Visible = false;
             }
 
