@@ -36,85 +36,85 @@ namespace QuotationsToolbox
 
             var referencesMenu = mainForm.GetMainCommandbarManager().GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu).GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References);
 
-            var commandbarButtonMoveAttachment = referencesMenu.AddCommandbarButton("MoveAttachment", "Move local attachments of selected references to a different folder");
+            var commandbarButtonMoveAttachment = referencesMenu.AddCommandbarButton("MoveAttachment", "移动所选参考文献的本地附件到不同文件夹");
             commandbarButtonMoveAttachment.HasSeparator = true;
 
-            var commandbarButtonExportAnnotations = referencesMenu.AddCommandbarButton("ExportAnnotations", "Export quotations in selected references as PDF highlights");
+            var commandbarButtonExportAnnotations = referencesMenu.AddCommandbarButton("ExportAnnotations", "将所选参考文献中的quotations导出为PDF高亮");
             commandbarButtonExportAnnotations.HasSeparator = true;
-            var commandbarButtonExportBookmarks = referencesMenu.AddCommandbarButton("ExportBookmarks", "Export quick references in selected references as PDF bookmarks");
+            var commandbarButtonExportBookmarks = referencesMenu.AddCommandbarButton("ExportBookmarks", "将所选参考文献中的quick references导出为PDF书签");
 
             // Preview Tool Menu
 
             var previewCommandbarMenuTools = (mainForm.GetPreviewCommandbar(MainFormPreviewCommandbarId.Toolbar).GetCommandbarMenu(MainFormPreviewCommandbarMenuId.Tools));
 
-            var annotationsImportCommandbarMenu = previewCommandbarMenuTools.AddCommandbarMenu("AnnotationsImportCommandbarMenu", "Import annotations…", CommandbarItemStyle.Default);
+            var annotationsImportCommandbarMenu = previewCommandbarMenuTools.AddCommandbarMenu("AnnotationsImportCommandbarMenu", "导入注释…", CommandbarItemStyle.Default);
 
             annotationsImportCommandbarMenu.HasSeparator = true;
 
-            annotationsImportCommandbarMenu.AddCommandbarButton("ImportDirectQuotations", "Import direct quotations in active document");
-            annotationsImportCommandbarMenu.AddCommandbarButton("ImportIndirectQuotations", "Import indirect quotations in active document");
-            annotationsImportCommandbarMenu.AddCommandbarButton("ImportComments", "Import comments in active document");
-            annotationsImportCommandbarMenu.AddCommandbarButton("ImportQuickReferences", "Import quick references in active document");
-            annotationsImportCommandbarMenu.AddCommandbarButton("ImportSummaries", "Import summaries in active document");
+            annotationsImportCommandbarMenu.AddCommandbarButton("ImportDirectQuotations", "将活动文档中注释当作direct quotations导入");
+            annotationsImportCommandbarMenu.AddCommandbarButton("ImportIndirectQuotations", "将活动文档中注释当作indirect quotations导入");
+            annotationsImportCommandbarMenu.AddCommandbarButton("ImportComments", "将活动文档中注释当作comments导入");
+            annotationsImportCommandbarMenu.AddCommandbarButton("ImportQuickReferences", "将活动文档中注释当作quick references导入");
+            annotationsImportCommandbarMenu.AddCommandbarButton("ImportSummaries", "将活动文档中注释当作summaries导入");
 
-            var commandBarButtonMergeAnnotations = previewCommandbarMenuTools.AddCommandbarButton("MergeAnnotations", "Merge annotations", CommandbarItemStyle.Default);
+            var commandBarButtonMergeAnnotations = previewCommandbarMenuTools.AddCommandbarButton("MergeAnnotations", "合并注释", CommandbarItemStyle.Default);
             commandBarButtonMergeAnnotations.HasSeparator = true;
 
-            var commandBarButtonRedrawAnnotations = previewCommandbarMenuTools.AddCommandbarButton("SimplifyAnnotations", "Redraw annotations", CommandbarItemStyle.Default);
+            var commandBarButtonRedrawAnnotations = previewCommandbarMenuTools.AddCommandbarButton("SimplifyAnnotations", "重绘注释", CommandbarItemStyle.Default);
 
             // Quotations Pop-Up Menu
 
             var referenceEditorQuotationsContextMenu = CommandbarMenu.Create(mainForm.GetReferenceEditorQuotationsCommandbarManager().ToolbarsManager.Tools["ReferenceEditorQuotationsContextMenu"] as PopupMenuTool);
 
-            var positionContextMenu = referenceEditorQuotationsContextMenu.AddCommandbarMenu("PositionContextMenu", "Quotation Position", CommandbarItemStyle.Default);
+            var positionContextMenu = referenceEditorQuotationsContextMenu.AddCommandbarMenu("PositionContextMenu", "Quotation位置", CommandbarItemStyle.Default);
             positionContextMenu.HasSeparator = true;
 
-            var commandbarButtonKnowledgeItemsSortInReference = positionContextMenu.AddCommandbarButton("KnowledgeItemsSortInReference", "Sort selected quotations by position in PDF");
+            var commandbarButtonKnowledgeItemsSortInReference = positionContextMenu.AddCommandbarButton("KnowledgeItemsSortInReference", "按PDF中的位置对所选quotations排序");
             commandbarButtonKnowledgeItemsSortInReference.Shortcut = Shortcut.CtrlK;
-            var commandbarButtonPageAssignFromPositionInPDF = positionContextMenu.AddCommandbarButton("PageAssignFromPositionInPDF", "Assign a page range to selected quote based on the PDF position");
+            var commandbarButtonPageAssignFromPositionInPDF = positionContextMenu.AddCommandbarButton("PageAssignFromPositionInPDF", "根据PDF中的位置为所选quote分配页码范围");
             commandbarButtonPageAssignFromPositionInPDF.HasSeparator = true;
-            positionContextMenu.AddCommandbarButton("PageAssignFromPreviousQuotation", "Assign page range and numbering type from previous quote to selected quote");
-            var commandbarButtonShowQuotationAndSetPageRangeManually = positionContextMenu.AddCommandbarButton("ShowQuotationAndSetPageRangeManually", "Assign page range manually after showing selected quote in PDF");
+            positionContextMenu.AddCommandbarButton("PageAssignFromPreviousQuotation", "从上一个quote分配页码范围和编号类型给所选quote");
+            var commandbarButtonShowQuotationAndSetPageRangeManually = positionContextMenu.AddCommandbarButton("ShowQuotationAndSetPageRangeManually", "在PDF中显示所选quote后手动分配页码范围");
             commandbarButtonShowQuotationAndSetPageRangeManually.Shortcut = Shortcut.CtrlDel;
 
             var commentsContextMenu = referenceEditorQuotationsContextMenu.AddCommandbarMenu("CommentsContextMenu", "Comments", CommandbarItemStyle.Default);
 
-            var commandbarButtonCommentAnnotation = commentsContextMenu.AddCommandbarButton("CommentAnnotation", "Link comment to same text in PDF as related quote");
-            commentsContextMenu.AddCommandbarButton("LinkQuotations", "Link selected quote and comment");
-            var commandbarButtonCreateCommentOnQuotation = commentsContextMenu.AddCommandbarButton("CreateCommentOnQuotation", "Create comment on selected quote");
+            var commandbarButtonCommentAnnotation = commentsContextMenu.AddCommandbarButton("CommentAnnotation", "将Comments链接到相关quote的相同PDF文本");
+            commentsContextMenu.AddCommandbarButton("LinkQuotations", "链接所选quote和comment");
+            var commandbarButtonCreateCommentOnQuotation = commentsContextMenu.AddCommandbarButton("CreateCommentOnQuotation", "为所选quote创建comment");
             commandbarButtonCreateCommentOnQuotation.Shortcut = Shortcut.CtrlShiftK;
-            var commandbarButtonSelectLinkedKnowledgeItem = commentsContextMenu.AddCommandbarButton("SelectLinkedKnowledgeItem", "Jump to related quote or comment");
+            var commandbarButtonSelectLinkedKnowledgeItem = commentsContextMenu.AddCommandbarButton("SelectLinkedKnowledgeItem", "跳转到相关quote或comment");
             commandbarButtonSelectLinkedKnowledgeItem.Shortcut = Shortcut.AltRightArrow;
 
             var quickReferencesContextMenu = referenceEditorQuotationsContextMenu.AddCommandbarMenu("QuickReferencesContextMenu", "Quick References", CommandbarItemStyle.Default);
-            quickReferencesContextMenu.AddCommandbarButton("QuickReferenceTitleCase", "Write core statement in title case in selected quick references");
-            var commandbarButtonConvertDirectQuoteToRedHighlight = quickReferencesContextMenu.AddCommandbarButton("ConvertDirectQuoteToRedHighlight", "Convert selected quotations to quick references");
+            quickReferencesContextMenu.AddCommandbarButton("QuickReferenceTitleCase", "将所选Quick References的core statement改为标题格式");
+            var commandbarButtonConvertDirectQuoteToRedHighlight = quickReferencesContextMenu.AddCommandbarButton("ConvertDirectQuoteToRedHighlight", "将所选quotations转换为quick references");
 
 
-            var commandbarButtonCleanQuotationsText = referenceEditorQuotationsContextMenu.AddCommandbarButton("CleanQuotationsText", "Clean text of selected quotations");
+            var commandbarButtonCleanQuotationsText = referenceEditorQuotationsContextMenu.AddCommandbarButton("CleanQuotationsText", "清理所选quotations的文本");
             commandbarButtonCleanQuotationsText.Shortcut = Shortcut.ShiftDel;
-            var commandbarButtonQuotationsMerge = referenceEditorQuotationsContextMenu.AddCommandbarButton("QuotationsMerge", "Merge selected quotations");
-            var commandbarButtonCreateSummaryOnQuotations = referenceEditorQuotationsContextMenu.AddCommandbarButton("CreateSummaryOnQuotations", "Create summary of selected quotes");
+            var commandbarButtonQuotationsMerge = referenceEditorQuotationsContextMenu.AddCommandbarButton("QuotationsMerge", "合并所选quotations");
+            var commandbarButtonCreateSummaryOnQuotations = referenceEditorQuotationsContextMenu.AddCommandbarButton("CreateSummaryOnQuotations", "创建所选quotes的summary");
 
             // Reference Editor Attachment Pop-Up Menu
 
             var referenceEditorUriLocationsContextMenu = CommandbarMenu.Create(mainForm.GetReferenceEditorElectronicLocationsCommandbarManager().ToolbarsManager.Tools["ReferenceEditorUriLocationsContextMenu"] as PopupMenuTool);
-            
+
             // Knowledge Item Pop-Up Menu
 
             var knowledgeOrganizerKnowledgeItemsContextMenu = CommandbarMenu.Create(mainForm.GetKnowledgeOrganizerKnowledgeItemsCommandbarManager().ToolbarsManager.Tools["KnowledgeOrganizerKnowledgeItemsContextMenu"] as PopupMenuTool);
 
-            var commandBarButtonOpenKnowledgeItemAttachment = knowledgeOrganizerKnowledgeItemsContextMenu.AddCommandbarButton("OpenKnowledgeItemAttachment", "Open the attachment in new window");
+            var commandBarButtonOpenKnowledgeItemAttachment = knowledgeOrganizerKnowledgeItemsContextMenu.AddCommandbarButton("OpenKnowledgeItemAttachment", "在新窗口中打开附件");
             commandBarButtonOpenKnowledgeItemAttachment.HasSeparator = true;
-            knowledgeOrganizerKnowledgeItemsContextMenu.AddCommandbarButton("SelectLinkedKnowledgeItem", "Jump to the linked knowledge item");
-            var commandbarButtonKnowledgeItemsSortInCategory = knowledgeOrganizerKnowledgeItemsContextMenu.AddCommandbarButton("SortKnowledgeItemsInSelection", "Sort selected knowledge items in current category by reference and position");
+            knowledgeOrganizerKnowledgeItemsContextMenu.AddCommandbarButton("SelectLinkedKnowledgeItem", "跳转到链接的知识项");
+            var commandbarButtonKnowledgeItemsSortInCategory = knowledgeOrganizerKnowledgeItemsContextMenu.AddCommandbarButton("SortKnowledgeItemsInSelection", "在当前category中按参考文献和位置对所选知识项排序");
 
             // Knowledge Organizer Category Pop-Up Menu
 
             var knowledgeOrganizerCategoriesColumnContextMenu = CommandbarMenu.Create(mainForm.GetKnowledgeOrganizerCategoriesCommandbarManager().ToolbarsManager.Tools["KnowledgeOrganizerCategoriesColumnContextMenu"] as PopupMenuTool);
 
 
-            var commandbarButtonSortKnowledgeItemsInCategory = knowledgeOrganizerCategoriesColumnContextMenu.AddCommandbarButton("SortKnowledgeItemsInCategory", "Sort all knowledge items in this category by reference and position");
+            var commandbarButtonSortKnowledgeItemsInCategory = knowledgeOrganizerCategoriesColumnContextMenu.AddCommandbarButton("SortKnowledgeItemsInCategory", "在此category中按参考文献和位置对所有知识项排序");
             commandbarButtonSortKnowledgeItemsInCategory.HasSeparator = true;
 
             // Fin
@@ -383,7 +383,7 @@ namespace QuotationsToolbox
                         var mainForm = (MainForm)e.Form;
                         if (mainForm.KnowledgeOrganizerFilterSet.Filters.Count() != 1 || mainForm.KnowledgeOrganizerFilterSet.Filters[0].Name == "Knowledge items without categories")
                         {
-                            MessageBox.Show("You must select one category.");
+                            MessageBox.Show("您必须选择一个类别。");
                             return;
                         }
 
@@ -398,7 +398,7 @@ namespace QuotationsToolbox
                         var mainForm = (MainForm)e.Form;
                         if (mainForm.KnowledgeOrganizerFilterSet.Filters.Count() != 1 || mainForm.KnowledgeOrganizerFilterSet.Filters[0].Name == "Knowledge items without categories")
                         {
-                            MessageBox.Show("You must select one category.");
+                            MessageBox.Show("您必须选择一个类别。");
                             return;
                         }
 
@@ -479,7 +479,7 @@ namespace QuotationsToolbox
             if (activeQuotation.EntityLinks.Where(e => e.Indication == EntityLink.PdfKnowledgeItemIndication).Count() == 0) return;
 
             Annotation annotation = activeQuotation.EntityLinks.Where(e => e.Indication == EntityLink.PdfKnowledgeItemIndication).FirstOrDefault().Target as Annotation;
-            
+
             PreviewControl previewControl = PreviewMethods.GetPreviewControl();
             if (previewControl == null) return;
 
