@@ -56,10 +56,24 @@ namespace PDFBookmarkExpandCollapse
         {
             if (sender is PdfViewControl pdfViewer)
             {
-                // 每次换文档时，都尝试添加一下书签按钮
+                // 设置侧边栏默认显示书签页面
+                var sideBarTabControl = pdfViewer?.GetSideBar();
+                if (sideBarTabControl != null)
+                {
+                    var bookmarksTabItem = sideBarTabControl.Items.Cast<TabItem>()
+                        .FirstOrDefault(item => item.Content is BookmarkSidebar);
+
+                    if (bookmarksTabItem != null)
+                    {
+                        sideBarTabControl.SelectedItem = bookmarksTabItem;
+                    }
+                }
+
+                // 添加展开/收起按钮
                 AddExpandCollapseButtonToBookmarksTab(pdfViewer);
             }
         }
+
 
         // 当PDF文档关闭时触发
         private void Viewer_DocumentClosing(object sender, DocumentClosingArgs args)
